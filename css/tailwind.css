@@ -1,0 +1,230 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@property --rotate {
+  syntax: '<angle>';
+  initial-value: 132deg;
+  inherits: false;
+}
+.task-list-item::before {
+  @apply hidden;
+}
+
+.task-list-item {
+  @apply list-none;
+}
+
+.footnotes {
+  @apply mt-12 border-t border-gray-200 pt-8 dark:border-gray-700;
+}
+
+.giscus {
+  width: 100%;
+}
+.giscus-frame {
+  width: 100%;
+}
+
+.csl-entry {
+  @apply my-5;
+}
+
+/* https://stackoverflow.com/questions/61083813/how-to-avoid-internal-autofill-selected-style-to-be-applied */
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  transition: background-color 600000s 0s, color 600000s 0s;
+}
+:root {
+  --card-height: 65vh;
+  --card-width: calc(var(--card-height) * (544 / 306));
+}
+
+.magic {
+  position: relative;
+  border-radius: 6px;
+  font-size: 1.5em;
+}
+
+.magic:hover {
+  color: var(--color2);
+  transition: color 1s;
+}
+.dark .magic:hover {
+  color: var(--color1);
+}
+.magic:hover:before,
+.card:hover:after {
+  animation: none;
+  opacity: 0;
+}
+
+.magic::before {
+  content: '';
+  width: 101.25%;
+  height: 100%;
+  border-radius: 0.3em;
+  background-image: linear-gradient(var(--rotate), var(--color1) 43%, var(--color2), var(--color3));
+  position: absolute;
+  z-index: -1;
+  top: -0%;
+  left: -0.625%;
+  animation: spin 2.5s linear infinite;
+}
+
+.magic::after {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  height: 150%;
+  width: 110%;
+  margin: 0 auto;
+  transform: scale(0.8);
+  filter: blur(calc(var(--card-height) / 6));
+  background-image: linear-gradient(var(--rotate), var(--color1) 43%, var(--color2), var(--color3));
+  opacity: 1;
+  transition: opacity 0.5s;
+  animation: spin 2.5s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    --rotate: 0deg;
+  }
+  100% {
+    --rotate: 360deg;
+  }
+}
+
+.project-header {
+  background-image: linear-gradient(90deg, #5ddcff, #05d6d9 43%, #f907fc);
+  background-position: 100% 0;
+  background-size: 500% 100%;
+  transition: background-position 1s linear;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.project-animated {
+  animation: 1.75s linear 0s infinite alternate both running textGradient;
+}
+
+.transitioned:hover {
+  background-position: 0 0;
+}
+
+@keyframes textGradient {
+  from {
+    background-position: 100%;
+  }
+  to {
+    background-position: 0%;
+  }
+}
+
+.card-element {
+  position: relative;
+  border: solid 10px transparent;
+  box-sizing: border-box;
+}
+
+.card-element::before {
+  content: '';
+  position: absolute;
+  top: -10px; /* equal to the border-width */
+  right: -10px; /* equal to the border-width */
+  bottom: -10px; /* equal to the border-width */
+  left: -10px; /* equal to the border-width */
+  background: linear-gradient(to right, blue, yellow);
+  z-index: -1;
+}
+.nodeLogo,
+.babelLogo,
+.reactLogo,
+.sassLogo,
+.webpackLogo {
+  position: absolute;
+  z-index: 1;
+}
+.nodeLogo {
+  animation: orbit1 5s infinite linear;
+}
+
+.reactLogo {
+  animation: orbit2 5s infinite linear;
+}
+
+.sassLogo {
+  animation: orbit3 5s infinite linear;
+}
+
+.webpackLogo {
+  animation: orbit4 5s infinite linear;
+}
+
+.babelLogo {
+  animation: orbit5 5s infinite linear;
+}
+
+.imgContainer {
+  position: absolute;
+  width: 200px; /* new */
+  height: 200px;
+  transform: translate(37%, -59%);
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes orbit1 {
+  from {
+    transform: rotate(0deg) translateX(9em) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(9em) rotate(-360deg);
+  }
+}
+
+@keyframes orbit2 {
+  from {
+    transform: rotate(72deg) translateX(9em) rotate(-41deg);
+  }
+  to {
+    transform: rotate(432deg) translateX(9em) rotate(-401deg);
+  }
+}
+
+@keyframes orbit3 {
+  from {
+    transform: rotate(144deg) translateX(9em) rotate(-140deg);
+  }
+  to {
+    transform: rotate(504deg) translateX(9em) rotate(-500deg);
+  }
+}
+
+@keyframes orbit4 {
+  from {
+    transform: rotate(216deg) translateX(9em) rotate(140deg);
+  }
+  to {
+    transform: rotate(576deg) translateX(9em) rotate(-224deg);
+  }
+}
+
+@keyframes orbit5 {
+  from {
+    transform: rotate(280deg) translateX(9em) rotate(84deg);
+  }
+  to {
+    transform: rotate(640deg) translateX(9em) rotate(-276deg);
+  }
+}
+.project-video {
+  width: 100%;
+  height: 100%;
+}
