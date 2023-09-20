@@ -2,7 +2,6 @@ import Link from '@/components/Link'
 import PageTitle from '@/components/PageTitle'
 import SectionContainer from '@/components/SectionContainer'
 import { BlogSEO } from '@/components/SEO'
-import Image from '@/components/Image'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import Comments from '@/components/comments'
@@ -55,14 +54,16 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
               <dd>
                 <ul className="flex justify-center space-x-8 sm:space-x-12 xl:block xl:space-x-0 xl:space-y-8">
                   {authorDetails.map((author) => (
-                    <li className="flex items-center space-x-2 xl:pb-9" key={author.name}>
+                    <li
+                      className="flex flex-col items-center space-x-2 lg:flex-row xl:pb-9"
+                      key={author.name}
+                    >
                       {author.avatar && (
-                        <Image
-                          src={author.avatar}
-                          width="38px"
-                          height="38px"
+                        <img
                           alt="avatar"
-                          className="h-10 w-10 rounded-full"
+                          src={author.avatar}
+                          className="w-1/6 rounded-full lg:w-1/5"
+                          loading="lazy"
                         />
                       )}
                       <dl className="whitespace-nowrap text-sm font-medium leading-5">
@@ -89,12 +90,11 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                           {`Previous ${type === 'project' ? 'Project' : 'Article'}`}
                         </h2>
                         <div className="py-2 pt-2">
-                          <Image
+                          <img
                             alt={prev.title}
                             src={prev.image}
-                            className="object-cover object-center md:h-24 lg:h-32"
-                            width={150}
-                            height={150 * (306 / 544)} // maintaining the aspect ratio
+                            className="h-full w-full object-cover object-center"
+                            loading="lazy"
                           />
                         </div>
                         <div className="text-center text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
@@ -137,12 +137,11 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                           {`Previous ${type === 'project' ? 'Project' : 'Article'}`}
                         </h2>
                         <div className="py-2 pt-2">
-                          <Image
+                          <img
                             alt={prev.title}
                             src={prev.image}
-                            className="object-cover object-center md:h-24 lg:h-32"
-                            width={150}
-                            height={150 * (306 / 544)} // maintaining the aspect ratio
+                            className="h-full w-full object-cover object-center"
+                            loading="lazy"
                           />
                         </div>
                         <div className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
@@ -156,12 +155,11 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                           {`Next ${type === 'project' ? 'Project' : 'Article'}`}
                         </h2>
                         <div className="py-2 pt-2">
-                          <Image
+                          <img
                             alt={next.title}
                             src={next.image}
-                            className="object-cover object-center md:h-24 lg:h-32"
-                            width={150}
-                            height={150 * (306 / 544)} // maintaining the aspect ratio
+                            className="h-full w-full object-cover object-center"
+                            loading="lazy"
                           />
                         </div>
                         <div className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">

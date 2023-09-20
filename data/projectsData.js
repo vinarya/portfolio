@@ -3,12 +3,12 @@ const projectsData = [
     title: 'Glimpz Music',
     date: '2017-05-15',
     field: 'cs',
-    description: `What if you could look up any information in the world? Webpages, images, videos
-    and more. Google has many features to help you find exactly what you're looking
-    for.`,
+    description: `Glimpz is the flagship product of Audion Technologies, a startup co-founded by myself and my friend Dhruv Tiwari. 
+    Designed to revolutionize the way you discover music, Glimpz is an app that seamlessly integrates with your Spotify account to 
+    offer personalized song recommendations.`,
     skills: ['react', 'AWS', 'javascript', 'UI/UX', 'Graphic Design'],
     imgSrc: '/static/images/glimpz.png',
-    href: '/project/spyro',
+    href: '/project/glimpz',
   },
   {
     title: 'MAT-4: STAR',

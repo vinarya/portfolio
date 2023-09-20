@@ -2,13 +2,12 @@ import React, { useState, useEffect, useRef } from 'react'
 import siteMetadata from '@/data/siteMetadata'
 import projectsData from '@/data/projectsData'
 import { motion, AnimatePresence } from 'framer-motion'
-import Image from '@/components/Image'
 import Link from '@/components/Link'
 import { PageSEO } from '@/components/SEO'
 
 const colors = ['FF6B6B', 'FFD93D', '6BCB77', '4D96FF']
 const Card = ({ title, description, imgSrc, href, skills, date }) => (
-  <div className="flex min-w-full flex-col p-2">
+  <div className="flex h-full min-w-full flex-col p-2">
     <div
       className={`grid-rows-card grid ${
         imgSrc && 'h-full'
@@ -18,13 +17,11 @@ const Card = ({ title, description, imgSrc, href, skills, date }) => (
       {/* Image Section */}
       {imgSrc && (
         <div className="pl-2 pr-2 pt-2">
-          <Image
+          <img
             alt={title}
             src={imgSrc}
-            className="block max-w-full object-cover object-center md:h-24 lg:h-32"
-            layout="responsive"
-            width={100}
-            height={100 * (306 / 544)}
+            className="h-full w-full object-cover object-center"
+            loading="lazy"
           />
         </div>
       )}
@@ -95,6 +92,15 @@ export default function Projects() {
     return acc
   }, [])
 
+  const resetFiltersAndSorts = () => {
+    setFilteredSkills([]) // Reset filtered skills
+    setSortBy(null) // Reset sort by
+    setFilterByField(null) // Reset filter by field
+    setIsOpenSkills(false) // Close the skills dropdown
+    setIsOpenSort(false) // Close the sort dropdown
+    setIsOpenField(false) // Close the field dropdown
+  }
+
   const handleFilter = (skill) => {
     setFilteredSkills((prevSkills) =>
       prevSkills.includes(skill) ? prevSkills.filter((s) => s !== skill) : [...prevSkills, skill]
@@ -148,154 +154,195 @@ export default function Projects() {
     <>
       <PageSEO title={`Projects - ${siteMetadata.author}`} description={siteMetadata.description} />
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
-        <div className="space-y-2 pb-8 pt-6 md:space-y-5">
+        <div className="space-y-2 py-6 md:space-y-5">
           <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
             Projects
           </h1>
           <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
-            Showcase your projects with a hero image (16 x 9)
+            {/*Showcase your projects with a hero image (16 x 9)*/}
           </p>
 
-          <div className="flex flex-col space-y-4 md:flex-row md:space-x-4 md:space-y-0">
-            {/* Skills Dropdown */}
-            <div
-              className="relative w-full rounded border p-2 dark:border-gray-400 dark:bg-gray-800 md:w-1/3"
-              ref={skillsRef}
-              onClick={() => setIsOpenSkills(!isOpenSkills)}
-            >
-              <div className="text-center">
-                <span className="text-black dark:text-white">Skills: </span>
-                <span className={filteredSkills.length > 0 ? 'text-teal-500' : 'text-gray-400'}>
-                  {filteredSkills.length > 0 ? `(${filteredSkills.length})` : 'Filter Skills'}
-                </span>
+          <div className="flex flex-col space-y-4 py-2 sm:py-4 md:flex-row md:space-x-4 md:space-y-0">
+            <div className="flex w-full flex-col space-y-4 sm:w-4/5 md:flex-row md:space-x-4 md:space-y-0">
+              {/* Skills Dropdown */}
+              <div
+                className="relative w-full rounded border p-2 dark:border-gray-400 dark:bg-gray-800 md:w-1/3"
+                ref={skillsRef}
+                onClick={() => setIsOpenSkills(!isOpenSkills)}
+              >
+                <div className="text-center">
+                  <span className="text-black dark:text-white">Skills: </span>
+                  <span
+                    className={
+                      filteredSkills.length > 0 ? 'font-bold text-teal-500' : 'text-gray-400'
+                    }
+                  >
+                    {filteredSkills.length > 0 ? `(${filteredSkills.length})` : 'Filter Skills'}
+                  </span>
+                </div>
+                <AnimatePresence>
+                  {isOpenSkills && (
+                    <motion.div
+                      initial={{ height: 0 }}
+                      animate={{ height: 'auto' }}
+                      exit={{ height: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="absolute left-1/2 z-10 mt-2 w-full -translate-x-1/2 transform overflow-hidden rounded border border-gray-300 bg-white dark:border-gray-400 dark:bg-gray-800"
+                    >
+                      <div className="flex flex-col">
+                        {uniqueSkills.map((skill, index) => (
+                          <button
+                            key={index}
+                            onClick={() => handleFilter(skill)}
+                            className={`py-2 text-center ${
+                              filteredSkills.includes(skill)
+                                ? 'bg-gray-100 text-teal-500 dark:bg-gray-700'
+                                : ''
+                            }`}
+                          >
+                            {skill}
+                          </button>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
-              <AnimatePresence>
-                {isOpenSkills && (
-                  <motion.div className="absolute left-1/2 z-10 mt-2 w-full -translate-x-1/2 transform rounded border border-gray-300 bg-white dark:border-gray-400 dark:bg-gray-800">
-                    <div className="flex flex-col">
-                      {uniqueSkills.map((skill, index) => (
+
+              {/* Sort Dropdown */}
+              <div
+                className="relative w-full rounded border p-2 dark:border-gray-400 dark:bg-gray-800 md:w-1/3"
+                ref={sortRef}
+                onClick={() => setIsOpenSort(!isOpenSort)}
+              >
+                <div className="text-center">
+                  <span className="text-black dark:text-white">Sort: </span>
+                  <span className={sortBy ? 'text-teal-500' : 'text-gray-400'}>
+                    {sortBy ? (sortBy === 'new' ? 'New First' : 'Old First') : 'By Date'}
+                  </span>
+                </div>
+                <AnimatePresence>
+                  {isOpenSort && (
+                    <motion.div
+                      initial={{ height: 0 }}
+                      animate={{ height: 'auto' }}
+                      exit={{ height: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="absolute left-1/2 z-10 mt-2 w-full -translate-x-1/2 transform overflow-hidden rounded border border-gray-300 bg-white dark:border-gray-400 dark:bg-gray-800"
+                    >
+                      <div className="flex flex-col">
                         <button
-                          key={index}
-                          onClick={() => handleFilter(skill)}
-                          className={`py-2 text-center ${
-                            filteredSkills.includes(skill)
-                              ? 'bg-gray-100 text-teal-500 dark:bg-gray-700'
-                              : ''
-                          }`}
+                          className={
+                            sortBy === 'new'
+                              ? 'bg-gray-100 py-2 text-center text-teal-500 dark:bg-gray-700'
+                              : 'py-2 text-center'
+                          }
+                          onClick={() => setSortBy(sortBy === 'new' ? null : 'new')}
                         >
-                          {skill}
+                          New First
                         </button>
-                      ))}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-
-            {/* Sort Dropdown */}
-            <div
-              className="relative w-full rounded border p-2 dark:border-gray-400 dark:bg-gray-800 md:w-1/3"
-              ref={sortRef}
-              onClick={() => setIsOpenSort(!isOpenSort)}
-            >
-              <div className="text-center">
-                <span className="text-black dark:text-white">Sort: </span>
-                <span className={sortBy ? 'text-teal-500' : 'text-gray-400'}>
-                  {sortBy ? (sortBy === 'new' ? 'New First' : 'Old First') : 'By Date'}
-                </span>
+                        <button
+                          className={
+                            sortBy === 'old'
+                              ? 'bg-gray-100 py-2 text-center text-teal-500 dark:bg-gray-700'
+                              : 'py-2 text-center'
+                          }
+                          onClick={() => setSortBy(sortBy === 'old' ? null : 'old')}
+                        >
+                          Old First
+                        </button>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
-              <AnimatePresence>
-                {isOpenSort && (
-                  <motion.div className="absolute left-1/2 z-10 mt-2 w-full -translate-x-1/2 transform rounded border border-gray-300 bg-white dark:border-gray-400 dark:bg-gray-800">
-                    <div className="flex flex-col">
-                      <button
-                        className={
-                          sortBy === 'new'
-                            ? 'bg-gray-100 py-2 text-center text-teal-500 dark:bg-gray-700'
-                            : 'py-2 text-center'
-                        }
-                        onClick={() => setSortBy(sortBy === 'new' ? null : 'new')}
-                      >
-                        New First
-                      </button>
-                      <button
-                        className={
-                          sortBy === 'old'
-                            ? 'bg-gray-100 py-2 text-center text-teal-500 dark:bg-gray-700'
-                            : 'py-2 text-center'
-                        }
-                        onClick={() => setSortBy(sortBy === 'old' ? null : 'old')}
-                      >
-                        Old First
-                      </button>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
 
-            {/* Field Dropdown */}
-            <div
-              className="relative w-full rounded border p-2 dark:border-gray-400 dark:bg-gray-800 md:w-1/3"
-              ref={fieldRef}
-              onClick={() => setIsOpenField(!isOpenField)}
-            >
-              <div className="text-center">
-                <span className="text-black dark:text-white">Field:</span>
-                <span className={filterByField ? 'text-teal-500' : 'text-gray-400'}>
-                  {filterByField
-                    ? filterByField === 'aero'
-                      ? '  Aerospace'
-                      : '  Computer Science'
-                    : '  Filter by Field'}
-                </span>
+              {/* Field Dropdown */}
+              <div
+                className="relative w-full rounded border p-2 dark:border-gray-400 dark:bg-gray-800 md:w-1/3"
+                ref={fieldRef}
+                onClick={() => setIsOpenField(!isOpenField)}
+              >
+                <div className="text-center">
+                  <span className="text-black dark:text-white">Field:</span>
+                  <span className={filterByField ? 'text-teal-500' : 'text-gray-400'}>
+                    {filterByField
+                      ? filterByField === 'aero'
+                        ? '  Aerospace'
+                        : '  Computer Science'
+                      : '  Filter by Field'}
+                  </span>
+                </div>
+                <AnimatePresence>
+                  {isOpenField && (
+                    <motion.div
+                      initial={{ height: 0 }}
+                      animate={{ height: 'auto' }}
+                      exit={{ height: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="absolute left-1/2 z-10 mt-2 w-full -translate-x-1/2 transform overflow-hidden rounded border border-gray-300 bg-white dark:border-gray-400 dark:bg-gray-800"
+                    >
+                      <div className="flex flex-col">
+                        <button
+                          className={
+                            filterByField === 'aero'
+                              ? 'bg-gray-100 py-2 text-center text-teal-500 dark:bg-gray-700'
+                              : 'py-2 text-center'
+                          }
+                          onClick={() => setFilterByField(filterByField === 'aero' ? null : 'aero')}
+                        >
+                          Aerospace
+                        </button>
+                        <button
+                          className={
+                            filterByField === 'cs'
+                              ? 'bg-gray-100 py-2 text-center text-teal-500 dark:bg-gray-700'
+                              : 'py-2 text-center'
+                          }
+                          onClick={() => setFilterByField(filterByField === 'cs' ? null : 'cs')}
+                        >
+                          Computer Science
+                        </button>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
-              <AnimatePresence>
-                {isOpenField && (
-                  <motion.div className="z-9 absolute left-1/2 mt-2 w-full -translate-x-1/2 transform rounded border border-gray-300 bg-white dark:border-gray-400 dark:bg-gray-800">
-                    <div className="flex flex-col">
-                      <button
-                        className={
-                          filterByField === 'aero'
-                            ? 'bg-gray-100 py-2 text-center text-teal-500 dark:bg-gray-700'
-                            : 'py-2 text-center'
-                        }
-                        onClick={() => setFilterByField(filterByField === 'aero' ? null : 'aero')}
-                      >
-                        Aerospace
-                      </button>
-                      <button
-                        className={
-                          filterByField === 'cs'
-                            ? 'bg-gray-100 py-2 text-center text-teal-500 dark:bg-gray-700'
-                            : 'py-2 text-center'
-                        }
-                        onClick={() => setFilterByField(filterByField === 'cs' ? null : 'cs')}
-                      >
-                        Computer Science
-                      </button>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+            </div>
+            <div
+              className="relative w-full rounded border p-2 text-center text-red-400 dark:border-gray-400 dark:bg-gray-800 sm:w-1/5"
+              onClick={resetFiltersAndSorts}
+            >
+              {' '}
+              Reset Filters
             </div>
           </div>
         </div>
 
         <div className="mx-auto flex justify-center py-12">
-          <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 md:w-auto lg:grid-cols-3">
-            {filteredProjects.map((d) => (
-              <Card
-                key={d.title}
-                title={d.title}
-                description={d.description}
-                imgSrc={d.imgSrc}
-                href={d.href}
-                skills={d.skills}
-                date={d.date}
-              />
-            ))}
-          </div>
+          <AnimatePresence>
+            <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 md:w-auto lg:grid-cols-3">
+              {filteredProjects.map((d, index) => (
+                <motion.div
+                  key={`${d.title}-${index}`}
+                  initial={{ opacity: 1 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="h-full flex-grow" // Add h-full here
+                >
+                  <Card
+                    title={d.title}
+                    description={d.description}
+                    imgSrc={d.imgSrc}
+                    href={d.href}
+                    skills={d.skills}
+                    date={d.date}
+                  />
+                </motion.div>
+              ))}
+            </div>
+          </AnimatePresence>
         </div>
       </div>
     </>

@@ -1,4 +1,3 @@
-import Image from './Image'
 import Link from './Link'
 
 const FeaturedProject = ({ title, description, imgSrc, href }) => (
@@ -20,25 +19,21 @@ const FeaturedProject = ({ title, description, imgSrc, href }) => (
           (href ? (
             <Link href={href} aria-label={`Link to ${title}`}>
               <div className="flex w-full flex-shrink-0 justify-center py-1 ">
-                <Image
+                <img
                   alt={title}
                   src={imgSrc}
-                  className="h-48 w-full object-cover object-center"
-                  layout="intrinsic"
-                  width={1500}
-                  height={1500 * (306 / 544)} // maintaining the aspect ratio
+                  className="h-full w-full object-cover object-center"
+                  loading="lazy"
                 />
               </div>
             </Link>
           ) : (
             <div className="pr-2s w-full flex-shrink-0 pl-2 pt-2">
-              <Image
+              <img
                 alt={title}
                 src={imgSrc}
-                className="h-48 w-full object-cover object-center"
-                layout="intrinsic"
-                width={544}
-                height={306} // original image dimensions
+                className="h-full w-full object-cover object-center"
+                loading="lazy"
               />
             </div>
           ))}

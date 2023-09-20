@@ -9,27 +9,34 @@ type: 'project'
 image: '/static/images/igor.png'
 ---
 
-Igor is an all terrain vehicle that can seat two people. It's equipped
-with caterpillar tracks driven by two 125cc engines, making it perfect
-for off-road exploration. It uses a Raspberry Pi and a slew of high torque
-servos in order to allow for remote operation via a 2.5 GHz remote
-controller making it an ideal choice for being deployed in hostile regions.
+# Introduction
+In the summer of 2021, I took over as the lead for a  research project called MD-UAV (Medical Unmanned Aerial Vehicle) at the University of Michigan's Aerospace Engineering Department. The project aims to deploy VTOL (Vertical Take-Off and Landing) aircraft in remote regions for the rapid delivery of medical supplies. The project is under the guidance of Professor Anthony Waas, and we are collaborating with BlueFlite, a drone manufacturer, and KNUST in Ghana.
 
-The caterpillar's tracks are made with off-the-shelf motorcycle chains
-linked together with rubber connections. To keep the tracks straight,
-sprockets are used to rotate the drive train and suspension. The engines
-on either side alter their throttle based on input from the driver to turn.
-This system allows you to change direction of Igor while standing still,
-giving it an unrivalled turning radius.
+# Background
+When I assumed leadership, the project was already midway through its development phase. The previous team had a design and had started building the aircraft. However, upon reviewing the CAD designs, I sensed that there were inefficiencies that needed to be addressed.
 
-The suspension of Igor allows the track to change shape in accordance with
-the terrain. The suspension arms resemble "dog legs" and include shock
-absorbers to soften the ride while keeping the track slack free.
+# Design Reevaluation and Modifications
+I brought my concerns to Professor Waas and initiated a comprehensive review of the existing design. My team and I double-checked the calculations made by the previous team. Through rigorous analysis and collaboration, we were able to significantly reduce the size of the aircraft while maintaining its core functionalities. This was a challenging task, considering we had to modify an already partially built aircraft.
 
-Igor was built over the course of 9 months and uses aluminium and stainless
-steel for light and rugged construction. The onboard driver or the remote
-controller sends signals to the Raspberry Pi, which translates them into
-throttle and brake response for the engines and brakes.
+# Technical Specifications
+<ul>
+  <li>Maximum Takeoff Weight (MTOW): 45 lbs</li>
+  <li>Estimated Range: 30 km</li>
+</ul>
+
+
+
+# Testing and Tuning
+
+We conducted static and dynamic thrust tests in the University of Michigan's 5x7 feet wind tunnel. Based on the test results, we decided to add a dedicated engine with a pusher propeller to enhance the aircraft's performance. The vertical flight tuning of the aircraft has also been successfully completed.
+
+# Collaboration and Future Goals
+
+We are fortunate to collaborate with BlueFlite and KNUST, Ghana, which adds valuable perspectives and expertise to our project. The ultimate goal is to deploy these VTOL aircraft in remote regions to expedite the delivery of medical supplies, potentially saving lives.
+
+# Conclusion
+
+The MDUAV project has been a journey of learning, innovation, and teamwork. We have successfully redesigned and tested an efficient VTOL aircraft capable of fulfilling its mission. As we move forward, we are excited about the potential impact this project could have on healthcare delivery in remote regions.
 
 <div className="flex flex-wrap justify-around">
   <img

@@ -4,7 +4,6 @@ import { PageSEO } from '@/components/SEO'
 import { getAllTags } from '@/lib/tags'
 import Link from '@/components/Link'
 import Tag from '@/components/Tag'
-import Image from '@/components/Image'
 import { useState, useEffect } from 'react'
 import Pagination from '@/components/Pagination'
 import formatDate from '@/lib/utils/formatDate'
@@ -192,14 +191,7 @@ export default function Blog({
                     </div>
                   </div>
                   <div className="pt-2 xl:col-start-6">
-                    <Image
-                      alt={title}
-                      src={image}
-                      className="md:h-24 lg:h-32"
-                      layout="responsive"
-                      width={20}
-                      height={20 * (306 / 544)} // maintaining the aspect ratio
-                    />
+                    <img alt={title} src={image} className="h-full w-full" loading="lazy" />
                   </div>
                 </article>
               </motion.li>

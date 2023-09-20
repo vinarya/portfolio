@@ -1,5 +1,4 @@
 import Link from '@/components/Link'
-import Image from '@/components/Image'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import { useState } from 'react'
@@ -77,16 +76,6 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
                     </div>
                     <div className="prose max-w-none text-gray-500 dark:text-gray-400">
                       {summary}
-                    </div>
-                    <div className="pl-2 pr-2 pt-2">
-                      <Image
-                        alt={title}
-                        src={image}
-                        className="object-cover object-center md:h-24 lg:h-32"
-                        layout="responsive"
-                        width={100}
-                        height={100 * (306 / 544)} // maintaining the aspect ratio
-                      />
                     </div>
                   </div>
                 </article>
