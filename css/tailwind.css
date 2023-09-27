@@ -44,11 +44,13 @@ input:-webkit-autofill:focus {
   position: relative;
   border-radius: 6px;
   font-size: 1.5em;
+  
 }
 
 .magic:hover {
   color: var(--color2);
   transition: color 1s;
+  
 }
 .dark .magic:hover {
   color: var(--color1);
@@ -64,12 +66,11 @@ input:-webkit-autofill:focus {
   width: 101.25%;
   height: 100%;
   border-radius: 0.3em;
-  background-image: linear-gradient(var(--rotate), var(--color1) 43%, var(--color2), var(--color3));
   position: absolute;
   z-index: -1;
   top: -0%;
   left: -0.625%;
-  animation: spin 2.5s linear infinite;
+  opacity: 0;
 }
 
 .magic::after {

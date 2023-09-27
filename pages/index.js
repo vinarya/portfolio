@@ -8,6 +8,7 @@ import { motion, useSpring } from 'framer-motion'
 import siteMetadata from '@/data/siteMetadata'
 import { Fragment } from 'react'
 import { Tab } from '@headlessui/react'
+import Link from 'next/link'
 import { useEffect, useState, useRef } from 'react'
 import certData from '@/data/certData'
 import eduData from '@/data/eduData'
@@ -16,9 +17,6 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import FeaturedProject from '@/components/FeaturedProject'
-import SocialIcon from '@/components/social-icons'
-import { BsGithub, BsFacebook, BsYoutube, BsMailbox2, BsLinkedin } from 'react-icons/bs'
-import { FaSquareXTwitter } from 'react-icons/fa6'
 
 const DEFAULT_LAYOUT = 'AuthorLayout'
 
@@ -136,9 +134,11 @@ export default function About({ authorDetails }) {
             Featured Projects
           </h1>
           <div className="hidden sm:flex">
-            <button className=" biliboard electronic bg-white px-4 py-3 text-center font-bold text-primary-500 hover:bg-primary-500 hover:text-white dark:bg-gray-900 dark:hover:bg-primary-500 dark:hover:text-gray-900">
-              View All Projects
-            </button>
+            <Link href="/project">
+              <button className=" biliboard electronic bg-white px-4 py-3 text-center font-bold text-primary-500 hover:bg-primary-500 hover:text-white dark:bg-gray-900 dark:hover:bg-primary-500 dark:hover:text-gray-900">
+                View All Projects
+              </button>
+            </Link>
           </div>
 
           {/*<p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
@@ -178,29 +178,18 @@ export default function About({ authorDetails }) {
           >
             <motion.div
               className="h-2 rounded-full bg-teal-500"
-              style={{
-                width: useSpring(`${((currentSlide + 1) / projectsData.length) * 100}%`, {
-                  stiffness: 0.5,
-                  damping: 0.2,
-                  mass: 0.1,
-                  restSpeed: 0.1,
-                  restDelta: 0.01,
-                }),
-              }}
               initial={{ width: '0%' }}
               animate={{
                 width: `${((currentSlide + 1) / projectsData.length) * 100}%`,
               }}
               transition={{
-                duration: 0.2, // This is now faster than before
-                ease: [0.43, 0.13, 0.23, 0.96],
+                duration: 0.5, // Adjust the duration as needed
+                ease: 'linear', // Linear easing for a smooth transition
               }}
             />
           </div>
           <div className="flex justify-center py-4 sm:hidden">
-            {' '}
-            {/* Center the button horizontally */}
-            <button className=" biliboard electronic bg-white px-4 py-3 text-center font-bold text-primary-500 hover:bg-primary-500 hover:text-gray-900 dark:bg-gray-900 dark:hover:bg-primary-500">
+            <button className="biliboard electronic bg-white px-4 py-3 text-center font-bold text-primary-500 hover:bg-primary-500 hover:text-gray-900 dark:bg-gray-900 dark:hover:bg-primary-500">
               View All Projects
             </button>
           </div>
@@ -316,7 +305,6 @@ export default function About({ authorDetails }) {
                     alt={project.title}
                     src={project.imgSrc}
                     className="ml-4 h-full w-full object-contain p-1 md:p-3"
-                    loading="lazy"
                   />
                 </div>
                 <div className="flex w-3/4 flex-col justify-center p-1 text-center">
@@ -391,7 +379,10 @@ export default function About({ authorDetails }) {
                 </div>
 
                 {/* Back of the card */}
-                <div className="rounded-md border-2 border-gray-200 border-opacity-60 dark:border-gray-700">
+                <div
+                  className="rounded-md border-2 border-gray-200 border-opacity-60 dark:border-gray-700"
+                  style={{ visibility: flipped[index] ? 'visible' : 'hidden' }}
+                >
                   <Slider
                     ref={(slider) => (sliderRefs.current[index] = slider)}
                     {...settings}

@@ -18,9 +18,11 @@ const LayoutWrapper = ({ children }) => {
   const handleDownload = () => {
     if (selectedOptions.aero) {
       // Download Aero resume
+      window.open('/static/files/Vinamr-Arya-Resume-AERO.pdf', '_blank')
     }
     if (selectedOptions.cs) {
       // Download CS resume
+      window.open('/static/files/Vinamr-Arya-Resume-CS.pdf', '_blank')
     }
     setShowModal(false)
   }

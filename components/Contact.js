@@ -19,7 +19,7 @@ const Contact = () => {
   }
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    //e.preventDefault()
     // Clear the form
     setFormData({
       name: '',
@@ -45,7 +45,11 @@ const Contact = () => {
 
   return (
     <div className="divide-y divide-gray-200 dark:divide-gray-700">
-      <form onSubmit={handleSubmit}>
+      <form
+        action="https://formsubmit.co/2e37943de36df6d6a7c3687cb5a3eee9"
+        method="POST"
+        onSubmit={handleSubmit}
+      >
         <div className="my-4">
           <label htmlFor="name" className="my-2 block font-medium text-gray-900 dark:text-gray-100">
             Name <sup>*</sup>
@@ -63,7 +67,7 @@ const Contact = () => {
         </div>
         <input type="hidden" name="_subject" value="New submission!" />
         <input type="hidden" name="_captcha" value="false" />
-        <input type="hidden" name="_next" value="https://www.vinamrarya.com/thankyou.html" />
+        {/*<input type="hidden" name="_next" value="https://www.vinamrarya.com/thankyou.html" />*/}
         <div className="mb-4">
           <label
             htmlFor="email"
@@ -100,6 +104,8 @@ const Contact = () => {
             onChange={handleChange}
           ></textarea>
         </div>
+        <input type="hidden" name="_subject" value="New submission!" />
+        <input type="hidden" name="_captcha" value="false" />
         <input
           type="submit"
           value="Submit"

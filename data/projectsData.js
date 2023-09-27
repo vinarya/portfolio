@@ -16,8 +16,8 @@ const projectsData = [
     field: 'aero',
     description: `The MAT 4: STAR is an autonomous aircraft with a maximum take off weight of 40 lbs, leveraging computer vision for 
     targeted payload deliveries. It can carry five 2.16 lb payloads, rotated and dropped via an in-fuselage revolving mechanism.`,
-    skills: ['CAD', 'Pixhawk', 'FEA', 'PID', 'Electronics', 'Composites'],
-    imgSrc: '/static/images/mat-4.png',
+    skills: ['CAD', 'Pixhawk', 'FEA', 'PID', 'Electronics', 'Composites', 'Additive Manufacturing'],
+    imgSrc: '/static/images/mat-42.png',
     href: '/project/mat-4',
   },
   {
@@ -27,9 +27,29 @@ const projectsData = [
     description: `MD-UAV (Medical UAV) is an on going research project at the University of Michigan 
     with the aim to develop a Hybrid Vertical Take-off and landing aircraft for rapid deployments of 
     medical supplies in remote regions.`,
-    skills: ['CAD', 'Pixhawk', 'FEA', 'PID', 'Electronics', 'Composites'],
-    imgSrc: '/static/images/mduav.png',
+    skills: ['CAD', 'Pixhawk', 'FEA', 'PID', 'Electronics', 'Composites', 'Additive Manufacturing'],
+    imgSrc: '/static/images/mduav2.png',
     href: '/project/md-uav',
+  },
+  {
+    title: 'MD-UAV Lite',
+    date: '2019-05-15',
+    field: 'aero',
+    description: `MD-UAV (Medical UAV) is an on going research project at the University of Michigan 
+    with the aim to develop a Hybrid Vertical Take-off and landing aircraft for rapid deployments of 
+    medical supplies in remote regions.`,
+    skills: [
+      'VTOL',
+      'QuadPlane',
+      'CAD/CAM',
+      'PX-4',
+      'Composites',
+      'Tilt Rotor',
+      'PID',
+      'Additive Manufacturing',
+    ],
+    imgSrc: '/static/images/mduav-lite.png',
+    href: '/project/md-uav-lite',
   },
   {
     title: 'Spyro',
@@ -39,7 +59,7 @@ const projectsData = [
     of these caterpillar tracks can change orientation independently giving SpyRo the ability 
     to tackle any terrain while keeping a low profile. `,
     skills: ['Raspberry Pi', 'CAD', 'Controls'],
-    imgSrc: '/static/images/spyro.png',
+    imgSrc: '/static/images/spyro2.png',
     href: '/project/spyro',
   },
   {
@@ -51,7 +71,7 @@ const projectsData = [
     dispenses fire retardant from an off the shelf fire extinguisher. Its payload bay can 
     be used to house several types of fire extinguishers (ex, Type A, B, C, etc.)`,
     skills: ['Pixhawk', 'Raspberry Pi', 'PID', 'Thermal Imaging'],
-    imgSrc: '/static/images/firefly.png',
+    imgSrc: '/static/images/firefly2.png',
     href: '/project/firefly',
   },
   {
@@ -62,7 +82,7 @@ const projectsData = [
     Robust is a 360-degree rotating robotic arm mounted on a UGV, initially crafted from balsa wood and controlled by a 16-channel remote for a science fair.
     I optimized its functionality using Arduino Mega, reducing the control channels to 7. The second iteration incorporates 3D-printed parts for lightweight strength.`,
     skills: ['Pixhawk', 'Raspberry Pi', 'PID'],
-    imgSrc: '/static/images/robust.png',
+    imgSrc: '/static/images/robust2.png',
     href: '/project/robust',
   },
   {
@@ -75,7 +95,7 @@ const projectsData = [
     water or cleaning solution of your choice as the foam roller just behind it wipes the 
     floor clean. `,
     skills: ['Pixhawk', 'Raspberry Pi', 'PID'],
-    imgSrc: '/static/images/garber.png',
+    imgSrc: '/static/images/garber2.png',
     href: '/project/garber',
   },
   {
@@ -87,7 +107,7 @@ const projectsData = [
     fly and ideal for beginners. The low wing variant is sportier and geared 
     towards more intermediate flyers.`,
     skills: ['Pixhawk', 'Raspberry Pi', 'PID'],
-    imgSrc: '/static/images/little_tornado.png',
+    imgSrc: '/static/images/little_tornado2.png',
     href: '/project/little-tornado',
   },
   {
@@ -99,7 +119,7 @@ const projectsData = [
     for off-road exploration. It uses a Raspberry Pi and a slew of high torque 
     servos in order to allow for remote operation.`,
     skills: ['Pixhawk', 'Raspberry Pi', 'PID'],
-    imgSrc: '/static/images/igor.png',
+    imgSrc: '/static/images/igor2.png',
     href: '/project/igor',
   },
 ]

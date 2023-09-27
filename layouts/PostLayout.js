@@ -55,7 +55,7 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                 <ul className="flex justify-center space-x-8 sm:space-x-12 xl:block xl:space-x-0 xl:space-y-8">
                   {authorDetails.map((author) => (
                     <li
-                      className="flex flex-col items-center space-x-2 lg:flex-row xl:pb-9"
+                      className="flex flex-col items-center space-x-2 xl:flex-row xl:pb-9"
                       key={author.name}
                     >
                       {author.avatar && (
@@ -86,20 +86,22 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                   <li className="hidden py-4 text-sm font-medium xl:block xl:space-y-8 xl:py-8">
                     {prev && (
                       <div className="flex flex-col items-center">
-                        <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
-                          {`Previous ${type === 'project' ? 'Project' : 'Article'}`}
-                        </h2>
-                        <div className="py-2 pt-2">
-                          <img
-                            alt={prev.title}
-                            src={prev.image}
-                            className="h-full w-full object-cover object-center"
-                            loading="lazy"
-                          />
-                        </div>
-                        <div className="text-center text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
-                          <Link href={`/${type.toLowerCase()}/${prev.slug}`}>{prev.title}</Link>
-                        </div>
+                        <Link href={`/${type.toLowerCase()}/${prev.slug}`}>
+                          <h2 className="text-center text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                            {`Previous ${type === 'project' ? 'Project' : 'Article'}`}
+                          </h2>
+                          <div className="py-2 pt-2">
+                            <img
+                              alt={prev.title}
+                              src={prev.image}
+                              className="h-full w-full object-cover object-center"
+                              loading="lazy"
+                            />
+                          </div>
+                          <div className="text-center text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
+                            {prev.title}
+                          </div>
+                        </Link>
                       </div>
                     )}
                   </li>
@@ -133,38 +135,42 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                   <div className="flex justify-between py-4 text-center xl:block xl:space-y-8 xl:pb-8 xl:pt-96">
                     {prev && (
                       <div className="flex flex-col items-center sm:block xl:hidden">
-                        <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
-                          {`Previous ${type === 'project' ? 'Project' : 'Article'}`}
-                        </h2>
-                        <div className="py-2 pt-2">
-                          <img
-                            alt={prev.title}
-                            src={prev.image}
-                            className="h-full w-full object-cover object-center"
-                            loading="lazy"
-                          />
-                        </div>
-                        <div className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
-                          <Link href={`/${type.toLowerCase()}/${prev.slug}`}>{prev.title}</Link>
-                        </div>
+                        <Link href={`/${type.toLowerCase()}/${prev.slug}`}>
+                          <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                            {`Previous ${type === 'project' ? 'Project' : 'Article'}`}
+                          </h2>
+                          <div className="py-2 pt-2">
+                            <img
+                              alt={prev.title}
+                              src={prev.image}
+                              className="h-full w-full object-cover object-center"
+                              loading="lazy"
+                            />
+                          </div>
+                          <div className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
+                            {prev.title}
+                          </div>
+                        </Link>
                       </div>
                     )}
                     {next && (
                       <div className="flex flex-col items-center text-center">
-                        <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
-                          {`Next ${type === 'project' ? 'Project' : 'Article'}`}
-                        </h2>
-                        <div className="py-2 pt-2">
-                          <img
-                            alt={next.title}
-                            src={next.image}
-                            className="h-full w-full object-cover object-center"
-                            loading="lazy"
-                          />
-                        </div>
-                        <div className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
-                          <Link href={`/${type.toLowerCase()}/${next.slug}`}>{next.title}</Link>
-                        </div>
+                        <Link href={`/${type.toLowerCase()}/${next.slug}`}>
+                          <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                            {`Next ${type === 'project' ? 'Project' : 'Article'}`}
+                          </h2>
+                          <div className="py-2 pt-2">
+                            <img
+                              alt={next.title}
+                              src={next.image}
+                              className="h-full w-full object-cover object-center"
+                              loading="lazy"
+                            />
+                          </div>
+                          <div className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
+                            {next.title}
+                          </div>
+                        </Link>
                       </div>
                     )}
                   </div>

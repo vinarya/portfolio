@@ -4,11 +4,11 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 
 const ContentSecurityPolicy = `
   default-src 'self';
-  script-src 'self' 'unsafe-eval' 'unsafe-inline' giscus.app www.youtube.com;
+  script-src 'self' 'unsafe-eval' 'unsafe-inline' giscus.app www.youtube.com www.googletagmanager.com www.google-analytics.com;
   style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-  img-src * blob: data:;
+  img-src * blob: data: www.google-analytics.com;
   media-src 'none';
-  connect-src *;
+  connect-src * www.google-analytics.com;
   font-src 'self' https://fonts.gstatic.com;
   frame-src giscus.app www.youtube.com;
 `

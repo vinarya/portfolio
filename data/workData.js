@@ -36,7 +36,12 @@ const workData = [
     jobPosition: 'Cyber Security Research Intern',
     startDate: 'May, 2022',
     endDate: 'August, 2022',
-    description: ['Bullet point 1.', 'Bullet point 2.', 'Bullet point 3.'],
+    description: [
+      'Earned CompTIA Security+ and Network+ certifications, laying a strong foundation in cybersecurity principles and network management.',
+      'Conducted vulnerability assessments to identify security gaps, and collaborated with the team to implement remediation measures.',
+      'Analyzed network traffic and monitored for suspicious activities, contributing to the companys overall cybersecurity posture.',
+      'Assisted in the creation of educational materials to raise employee awareness about cybersecurity best practices.',
+    ],
     imgSrc: '/static/images/work/safe.png',
     href: 'https://www.safe.security/',
   },

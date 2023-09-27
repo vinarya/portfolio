@@ -2,20 +2,21 @@ const siteMetadata = {
   title: 'Vinamr Arya',
   author: 'Vinamr Arya',
   headerTitle: 'Vinamr Arya',
-  description: 'A blog created with Next.js and Tailwind.css',
+  description:
+    'Portfolio website for Vinamr Arya. Vinamr is a graduate in Aerospace Engineering and Computer Science from the University of Michigan. He is also the founder and CEO of Burnoulli Tech, that promotes STEM education for school students while also manufacturing Robots and All Terrain Vehicles. This website is a comprehensive look into his professional life.',
   language: 'en-us',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://tailwind-nextjs-starter-blog.vercel.app',
-  siteRepo: 'https://github.com/timlrx/tailwind-nextjs-starter-blog',
+  siteUrl: 'https://vinamrarya.com',
+  siteRepo: 'https://github.com/vinarya/portfolio',
   siteLogo: '/static/images/logo.png',
   image: '/static/images/avatar.png',
   socialBanner: '/static/images/twitter-card.png',
   email: 'me@vinamrarya.com',
-  github: 'https://github.com',
-  twitter: 'https://twitter.com/Twitter',
-  facebook: 'https://facebook.com',
-  youtube: 'https://youtube.com',
-  linkedin: 'https://www.linkedin.com',
+  github: 'https://github.com/vinarya',
+  twitter: 'https://twitter.com/arya_vinamr',
+  facebook: 'https://www.facebook.com/vinnovator',
+  youtube: 'https://www.youtube.com/channel/UCCN-Sqkmg1Q_zKSm38hq_rA',
+  linkedin: 'https://www.linkedin.com/in/vinamrarya',
   locale: 'en-US',
   analytics: {
     // If you want to use an analytics provider you have to add it to the
@@ -24,7 +25,7 @@ const siteMetadata = {
     plausibleDataDomain: '', // e.g. tailwind-nextjs-starter-blog.vercel.app
     simpleAnalytics: false, // true or false
     umamiWebsiteId: '', // e.g. 123e4567-e89b-12d3-a456-426614174000
-    googleAnalyticsId: '', // e.g. UA-000000-2 or G-XXXXXXX
+    googleAnalyticsId: 'G-TQPM8HRQR7', // e.g. UA-000000-2 or G-XXXXXXX
     posthogAnalyticsId: '', // posthog.init e.g. phc_5yXvArzvRdqtZIsHkEm3Fkkhm3d0bEYUXCaFISzqPSQ
   },
   newsletter: {

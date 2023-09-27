@@ -5,8 +5,19 @@ import { motion, AnimatePresence } from 'framer-motion'
 import Link from '@/components/Link'
 import { PageSEO } from '@/components/SEO'
 
-const colors = ['FF6B6B', 'FFD93D', '6BCB77', '4D96FF']
-const Card = ({ title, description, imgSrc, href, skills, date }) => (
+const colors = ['#FF6B6B', '#FFD93D', '#6BCB77', '#4D96FF']
+const colorsImg = [
+  '#FF6B6B',
+  '#f8961e',
+  '#FFD93D',
+  '#d9ed92',
+  '#b5e48c',
+  '#99d98c',
+  '#00bbf9',
+  '#0496ff',
+  '#2176ff',
+]
+const Card = ({ title, description, imgSrc, href, skills, date, index }) => (
   <div className="flex h-full min-w-full flex-col p-2">
     <div
       className={`grid-rows-card grid ${
@@ -16,14 +27,19 @@ const Card = ({ title, description, imgSrc, href, skills, date }) => (
     >
       {/* Image Section */}
       {imgSrc && (
-        <div className="pl-2 pr-2 pt-2">
-          <img
-            alt={title}
-            src={imgSrc}
-            className="h-full w-full object-cover object-center"
-            loading="lazy"
-          />
-        </div>
+        <Link href={href} aria-label={`Link to ${title}`}>
+          <div
+            className="m-2 rounded"
+            style={{ backgroundColor: colorsImg[index % colorsImg.length] }} // Wrap around the colors
+          >
+            <img
+              alt={title}
+              src={imgSrc}
+              className="h-full w-full object-cover object-center"
+              loading="lazy"
+            />
+          </div>
+        </Link>
       )}
 
       {/* Text Section */}
@@ -58,7 +74,7 @@ const Card = ({ title, description, imgSrc, href, skills, date }) => (
             <span
               key={index}
               className={`my-1 mr-2 rounded-full px-2 py-0.5 text-white`}
-              style={{ backgroundColor: `#${colors[index % colors.length]}` }} // Dynamic background color
+              style={{ backgroundColor: `${colors[index % colors.length]}` }} // Dynamic background color
             >
               {skill}
             </span>
@@ -338,6 +354,7 @@ export default function Projects() {
                     href={d.href}
                     skills={d.skills}
                     date={d.date}
+                    index={index}
                   />
                 </motion.div>
               ))}
