@@ -1,0 +1,54 @@
+---
+title: Portfolio Website
+date: '2023-09-25'
+tags: ['Next.js','UI/UX','react','javascript','Graphic Design']
+draft: false
+summary: 'Current Portfolio Website'
+type: 'project'
+image: '/static/images/glimpz.png'
+---
+
+<img src="/static/images/portfolio-website.png" className="w-full " />
+# Introduction
+
+Creating a portfolio is often seen as a straightforward task—showcase your work, list your skills, and provide a way for people to contact you. 
+However, the process of building my portfolio was anything but simple; it was a journey of self-discovery and skill mastery. From the initial 
+planning stages to the final deployment, every step was a learning experience. In this post, I'll walk you through the architecture, features, 
+and technologies that make up my portfolio.
+
+# The Architecture
+
+The portfolio is built on Next.js, a React framework that offers features like server-side rendering and static site generation. This choice was 
+motivated by the need for performance and SEO-friendliness. The project is structured meticulously, with each component and utility having its 
+dedicated file and purpose. For instance, LayoutWrapper.js serves as the layout component that wraps around the main content, providing a consistent 
+structure across pages. On the other hand, utility files like formatDate.js and kebabCase.js handle specific tasks like date formatting and string 
+conversion, respectively.
+
+# Frontend Components
+
+The frontend is where the magic happens. Components like Card.js and FeaturedProject.js are the building blocks of the portfolio. The Card.js 
+component is versatile, rendering individual cards that can be used to display projects, blog posts, or any other content. FeaturedProject.js is 
+used to highlight certain projects, giving them a platform to shine. These components are styled using Tailwind CSS, a utility-first CSS framework 
+that allows for rapid UI development.
+
+# User Experience
+User experience was a top priority, and several features were implemented to enhance it. The ThemeSwitch.js component allows users to toggle between 
+light and dark modes, offering a more personalized browsing experience. The portfolio also integrates Disqus for comment functionality, providing a 
+platform for visitors to share their thoughts and feedback.
+
+# Analytics and SEO
+
+Understanding user behavior is crucial for any website. The portfolio integrates Google Analytics through the GoogleAnalytics.js component, offering 
+insights into user behavior and interaction. SEO is managed by the SEO.js component, ensuring that the portfolio ranks well on search engines and reaches 
+a wider audience.
+
+# Graphics and UI Design
+
+One of the most rewarding aspects of this project was the opportunity to create all the graphics and UI designs myself. From the color scheme to the layout, 
+every design element was carefully chosen to create a cohesive and visually appealing experience.
+
+# Conclusion
+
+Building this portfolio was not just about showcasing my skills and projects; it was a comprehensive learning experience that pushed me to explore new technologies 
+and think critically about design and user experience. It serves as both a representation of my abilities and a testament to my journey as a developer and designer. 
+Whether you're a potential employer, a fellow developer, or a curious visitor, I hope this portfolio offers you a glimpse into my skills and passions.

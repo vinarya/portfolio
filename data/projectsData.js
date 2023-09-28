@@ -1,5 +1,16 @@
 const projectsData = [
   {
+    title: 'Portfolio Website',
+    date: '2023-09-25',
+    field: 'cs',
+    description: `Explore the making of this portfolio website, built with Next.js and hosted on Bluehost. This project serves as 
+    a comprehensive showcase of my skills in web development, UI/UX design, and more. Get insights into the technical architecture, 
+    features, and the challenges faced during development.`,
+    skills: ['react', 'Next.js', 'javascript', 'UI/UX', 'Graphic Design'],
+    imgSrc: '/static/images/portfolio-website.png',
+    href: '/project/portfolio-website',
+  },
+  {
     title: 'Glimpz Music',
     date: '2017-05-15',
     field: 'cs',
@@ -50,6 +61,17 @@ const projectsData = [
     ],
     imgSrc: '/static/images/mduav-lite.png',
     href: '/project/md-uav-lite',
+  },
+  {
+    title: 'Portfolio Website Version 2',
+    date: '2022-07-12',
+    field: 'cs',
+    description: `Explore the making of this portfolio website, built with Next.js and hosted on Bluehost. This project serves as 
+    a comprehensive showcase of my skills in web development, UI/UX design, and more. Get insights into the technical architecture, 
+    features, and the challenges faced during development.`,
+    skills: ['HTML', 'CSS', 'javascript', 'UI/UX', 'Graphic Design'],
+    imgSrc: '/static/images/old-portfolio.png',
+    href: '/project/portfolio-v2',
   },
   {
     title: 'Spyro',
