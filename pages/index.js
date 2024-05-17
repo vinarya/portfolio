@@ -17,6 +17,7 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import FeaturedProject from '@/components/FeaturedProject'
+import { FaReact } from 'react-icons/fa'
 
 const DEFAULT_LAYOUT = 'AuthorLayout'
 
@@ -35,6 +36,23 @@ export default function About({ authorDetails }) {
   const [flipped, setFlipped] = useState([false, false, false])
   const [currentHobbySlide, setCurrentHobbySlide] = useState([0, 0, 0])
   const [currentCaptionIndex, setCurrentCaptionIndex] = useState([0, 0, 0])
+  const [showSplash, setShowSplash] = useState(true)
+  const [opacity, setOpacity] = useState(1)
+
+  useEffect(() => {
+    const fadeOut = setTimeout(() => {
+      setOpacity(0)
+    }, 2500) // Start fading out after 2.5 seconds
+
+    const removeSplash = setTimeout(() => {
+      setShowSplash(false)
+    }, 3000) // Completely remove after 3.5 seconds
+
+    return () => {
+      clearTimeout(fadeOut)
+      clearTimeout(removeSplash)
+    }
+  }, [])
 
   const cardRefs = useRef([])
   const sliderRefs = useRef([])
@@ -123,6 +141,56 @@ export default function About({ authorDetails }) {
 
   return (
     <>
+      {showSplash && (
+        <div
+          className={`fixed inset-0 flex items-center justify-center bg-white transition-opacity duration-500 dark:bg-gray-900 ${
+            showSplash ? 'opacity-100' : 'opacity-0'
+          }`}
+          style={{
+            zIndex: 9999,
+            opacity: opacity,
+          }}
+        >
+          <div className="mr-3 flex h-1/4 w-1/4 items-center sm:h-1/6 sm:w-1/6">
+            <div className="cont flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" className="he" viewBox="0 0 97.5 97.5">
+                <defs>
+                  <clipPath id="a">
+                    <path d="M0 78h78V0H0v78z" />
+                  </clipPath>
+                </defs>
+                <g clipPath="url(#a)" transform="matrix(1.25 0 0 -1.25 0 97.5)">
+                  <g stroke="currentColor" strokeWidth="1.00">
+                    <path
+                      className="v"
+                      d="M23.154 51.435c.845 1.277 2.263 2.04 3.794 2.04 1.85 0 3.5-1.105 4.206-2.816l7.475-18.55c.034-.084.082-.14.208-.14.185.002.42.13.518.373L51.41 62.8c.692 1.75 2.355 2.88 4.233 2.88h.193c1.517 0 2.93-.752 3.776-2.013.848-1.262 1.013-2.855.443-4.262L41.615 14.01c-.438-1.082-1.467-1.785-2.62-1.79h-.01c-1.027 0-1.91.588-2.304 1.53L22.757 47.14c-.596 1.412-.447 3.017.398 4.295M17.61 60.99c0-2.646 2.143-4.79 4.784-4.79 2.643 0 4.784 2.144 4.784 4.79 0 2.645-2.14 4.79-4.784 4.79-2.64 0-4.783-2.145-4.783-4.79"
+                      fill="none"
+                      strokeWidth=".80033478"
+                    />
+                  </g>
+                </g>
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" className="she" viewBox="0 0 97.5 97.5">
+                <defs>
+                  <clipPath id="a">
+                    <path d="M0 78h78V0H0v78z" />
+                  </clipPath>
+                </defs>
+                <g clipPath="url(#a)" transform="matrix(1.25 0 0 -1.25 0 97.5)">
+                  <g stroke="currentColor" strokeWidth="1.00">
+                    <path
+                      className="va"
+                      d="M23.154 51.435c.845 1.277 2.263 2.04 3.794 2.04 1.85 0 3.5-1.105 4.206-2.816l7.475-18.55c.034-.084.082-.14.208-.14.185.002.42.13.518.373L51.41 62.8c.692 1.75 2.355 2.88 4.233 2.88h.193c1.517 0 2.93-.752 3.776-2.013.848-1.262 1.013-2.855.443-4.262L41.615 14.01c-.438-1.082-1.467-1.785-2.62-1.79h-.01c-1.027 0-1.91.588-2.304 1.53L22.757 47.14c-.596 1.412-.447 3.017.398 4.295M17.61 60.99c0-2.646 2.143-4.79 4.784-4.79 2.643 0 4.784 2.144 4.784 4.79 0 2.645-2.14 4.79-4.784 4.79-2.64 0-4.783-2.145-4.783-4.79"
+                      fill="none"
+                      strokeWidth=".80033478"
+                    />
+                  </g>
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+      )}
       <MDXLayoutRenderer
         layout={frontMatter.layout || DEFAULT_LAYOUT}
         mdxSource={mdxSource}

@@ -1,54 +1,45 @@
 ---
-title: Portfolio Website
-date: '2023-09-25'
+title: Portfolio Website Version 2
+date: '2022-07-12'
 tags: ['HTML','UI/UX','CSS','javascript','Graphic Design']
 draft: false
 summary: 'Current Portfolio Website'
 type: 'project'
-image: '/static/images/glimpz.png'
+image: '/static/images/old-portfolio.png'
 ---
 
 <img src="/static/images/old-portfolio.png" className="w-full " />
 # Introduction
 
-Creating a portfolio is often seen as a straightforward task—showcase your work, list your skills, and provide a way for people to contact you. 
-However, the process of building my portfolio was anything but simple; it was a journey of self-discovery and skill mastery. From the initial 
-planning stages to the final deployment, every step was a learning experience. In this post, I'll walk you through the architecture, features, 
-and technologies that make up my portfolio.
+My previous [portfolio website](https://vinamrarya.com/v2) serves as a digital resume and a showcase of my diverse skill set. Built with HTML, CSS, and JavaScript, the website was 
+designed to be both visually appealing and functionally robust. It features a clean, modern layout with intuitive navigation, making it easy for 
+visitors to find what they're looking for.
 
-# The Architecture
+# Key Features
 
-The portfolio is built on Next.js, a React framework that offers features like server-side rendering and static site generation. This choice was 
-motivated by the need for performance and SEO-friendliness. The project is structured meticulously, with each component and utility having its 
-dedicated file and purpose. For instance, LayoutWrapper.js serves as the layout component that wraps around the main content, providing a consistent 
-structure across pages. On the other hand, utility files like formatDate.js and kebabCase.js handle specific tasks like date formatting and string 
-conversion, respectively.
+- **Home Page** _(index.html)_: This is where you'll get to know a bit about me right off the bat, along with quick navigation options to dive deeper 
+into other sections of my portfolio.
 
-# Frontend Components
+- **Project Pages** _(e.g., ceo-burnoulli.html, cricket.html, flying.html etc.)_: I've dedicated individual pages to each of my projects or roles. These 
+pages offer detailed descriptions and, in some cases, visual elements to help you understand the scope and impact of my work.
 
-The frontend is where the magic happens. Components like Card.js and FeaturedProject.js are the building blocks of the portfolio. The Card.js 
-component is versatile, rendering individual cards that can be used to display projects, blog posts, or any other content. FeaturedProject.js is 
-used to highlight certain projects, giving them a platform to shine. These components are styled using Tailwind CSS, a utility-first CSS framework 
-that allows for rapid UI development.
+- **Skills and Interests** _(e.g., fpv.html, garber.html, igor.html etc.)_:  I wanted to give you a rounded view of who I am, both professionally and 
+personally. These pages delve into my skills and hobbies, from coding to flying drones.
 
-# User Experience
-User experience was a top priority, and several features were implemented to enhance it. The ThemeSwitch.js component allows users to toggle between 
-light and dark modes, offering a more personalized browsing experience. The portfolio also integrates Disqus for comment functionality, providing a 
-platform for visitors to share their thoughts and feedback.
+- **Academic and Professional Roles** _(e.g., research-assistant.html, regional-secretary.html etc.)_: Here, you'll find insights into my academic and 
+professional journey. I've detailed the roles I've held and the contributions I've made in each.
 
-# Analytics and SEO
+- **Styling** _(assets/css/styles.css)_: I've used custom CSS to give my website a unique and personalized look. I wanted the design to be a reflection
+of my style and personality.
 
-Understanding user behavior is crucial for any website. The portfolio integrates Google Analytics through the GoogleAnalytics.js component, offering 
-insights into user behavior and interaction. SEO is managed by the SEO.js component, ensuring that the portfolio ranks well on search engines and reaches 
-a wider audience.
+- **Interactivity** _(assets/js/app.js)_: To enhance your experience, I've added interactive elements using JavaScript. Whether it's a hover effect or 
+a dynamic content load, I've tried to make the website as engaging as possible.
 
-# Graphics and UI Design
-
-One of the most rewarding aspects of this project was the opportunity to create all the graphics and UI designs myself. From the color scheme to the layout, 
-every design element was carefully chosen to create a cohesive and visually appealing experience.
+# Technical Details
+- **HTML:** I used HTML to structure the content, ensuring each section is organized and easy to navigate.
+- **CSS:** The custom styles are all located in a single CSS file, making it easier for me to manage the layout and design.
+- **JavaScript:** I've used JavaScript to add a layer of interactivity, making the website not just informative but also engaging.
 
 # Conclusion
-
-Building this portfolio was not just about showcasing my skills and projects; it was a comprehensive learning experience that pushed me to explore new technologies 
-and think critically about design and user experience. It serves as both a representation of my abilities and a testament to my journey as a developer and designer. 
-Whether you're a potential employer, a fellow developer, or a curious visitor, I hope this portfolio offers you a glimpse into my skills and passions.
+I'm really proud of how my portfolio website turned out. It's a well-crafted, comprehensive platform that effectively showcases my skills, projects, 
+and interests. I believe it serves as an excellent tool for networking and job searching, offering a detailed look into both my professional and personal life.

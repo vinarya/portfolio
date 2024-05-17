@@ -1,0 +1,96 @@
+---
+title: MD-UAV
+date: '2023-10-09'
+tags: ['VTOL','Tailsitter','CAD/CAM','Betaflight','Additive Manufacturing']
+draft: false
+summary: 'MD-UAV or Medical UAV, is an on going research project at the University of Michigan with the aim to develop a Hybrid Vertical Take-off and 
+landing aircraft for rapid deployments of medical supplies in remote regions.'
+type: 'project'
+image: '/static/images/palindrone.png'
+---
+
+![palindrone](/static/images/project/palindrone/palindrone-1.PNG)
+
+# Introduction
+In my ongoing exploration of VTOL (Vertical Take-Off and Landing) aircraft, I am currently designing and building a tandem wing VTOL drone. This project 
+serves as an experimental platform to understand the dynamics of a tail-sitting aircraft with two elliptical wings, each equipped with two motors. The 
+prototype is unique in that it is fully 3D printed and assembles without the need for glue or fasteners, except for the motor mounts.
+
+# Background
+The core idea is to develop a proof-of-concept prototype capable of transitioning from a quadcopter-like vertical takeoff to a more aerodynamically efficient 
+forward flight. The challenge lies in the control system, as the aircraft needs to switch its orientation by 90 degrees during the transition.
+
+<div className="flex flex-wrap justify-around mb-6">
+  <img
+    src="/static/images/project/palindrone/palindrone-2.PNG"
+    className="m-2 w-full sm:w-1/2 md:w-1/3 lg:w-47_5"
+  />
+  <img
+    src="/static/images/project/palindrone/palindrone-3.PNG"
+    className="m-2 w-full sm:w-1/2 md:w-1/3 lg:w-47_5"
+  />
+</div>
+
+# Design and Construction
+
+The aircraft is designed to be modular, with interlocking parts that assemble without any adhesives or fasteners. This approach makes the construction process 
+efficient and environmentally friendly. The aircraft is powered by four Xing E 2207 1800 KV motors and utilizes a 1300 mAh 6S battery for propulsion.
+
+# Technical Specifications
+<ul>
+  <li>Motor: 4 x Xing E 2207 1800 KV</li>
+  <li>Battery: 1300 mAh 6S</li>
+  <li>Flight Controller: Betaflight</li>
+  <li>Propeller: 5 x 3 x 3</li>
+</ul>
+<div className="flex flex-wrap justify-around ">
+  <img
+    src="/static/images/project/palindrone/palindrone-4.PNG"
+    className="m-2 w-full sm:w-1/2 md:w-1/3 lg:w-47_5"
+  />
+  <img
+    src="/static/images/project/palindrone/palindrone-5.PNG"
+    className="m-2 w-full sm:w-1/2 md:w-1/3 lg:w-47_5"
+  />
+</div>
+
+
+# Testing and Tuning
+
+I am currently tuning the aircraft for stabilized (angle) mode. The transition to forward flight is manual at this stage, requiring a build-up of airspeed before 
+pitching forward 90 degrees. One of the challenges I am facing is the swapping of roll and yaw controls during the transition, a limitation due to the current 
+Betaflight setup.
+
+
+
+<div className="flex flex-wrap justify-around mb-6">
+  <img
+    src="/static/images/project/palindrone/palindrone-6.jpeg"
+    className="m-2 w-full sm:w-1/2 md:w-1/3 lg:w-47_5"
+  />
+  <img
+    src="/static/images/project/palindrone/palindrone-7.jpeg"
+    className="m-2 w-full sm:w-1/2 md:w-1/3 lg:w-47_5"
+  />
+</div>
+
+# Future Goals
+
+The next steps involve scaling up the design to accommodate more advanced flight control systems and control surfaces. The ultimate aim is to integrate this technology 
+into larger, more capable aircraft that can serve various applications, from delivery to surveillance.
+
+# Conclusion
+
+This ongoing project is providing enlightening experiences and valuable insights into the complexities and potential of VTOL aircraft. The prototype serves as a stepping 
+stone for future developments in this exciting field of aerospace engineering.
+
+<div className="flex flex-wrap justify-around">
+  <img
+    src="/static/images/project/palindrone/palindrone-8.jpeg"
+    className="m-2 w-full sm:w-1/2 md:w-1/3 lg:w-47_5"
+  />
+  <img
+    src="/static/images/project/palindrone/palindrone-9.jpeg"
+    className="m-2 w-full sm:w-1/2 md:w-1/3 lg:w-47_5"
+  />
+</div>

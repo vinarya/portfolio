@@ -1,5 +1,16 @@
 const projectsData = [
   {
+    title: 'Palindrone',
+    date: '2023-10-09',
+    field: 'aero',
+    description: `Explore the making of this portfolio website, built with Next.js and hosted on Bluehost. This project serves as 
+    a comprehensive showcase of my skills in web development, UI/UX design, and more. Get insights into the technical architecture, 
+    features, and the challenges faced during development.`,
+    skills: ['VTOL', 'Tailsitter', 'CAD/CAM', 'Betaflight', 'Additive Manufacturing'],
+    imgSrc: '/static/images/palindrone.png',
+    href: '/project/palindrone',
+  },
+  {
     title: 'Portfolio Website',
     date: '2023-09-25',
     field: 'cs',
@@ -12,7 +23,7 @@ const projectsData = [
   },
   {
     title: 'Glimpz Music',
-    date: '2017-05-15',
+    date: '2023-09-28',
     field: 'cs',
     description: `Glimpz is the flagship product of Audion Technologies, a startup co-founded by myself and my friend Dhruv Tiwari. 
     Designed to revolutionize the way you discover music, Glimpz is an app that seamlessly integrates with your Spotify account to 
@@ -23,7 +34,7 @@ const projectsData = [
   },
   {
     title: 'MAT-4: STAR',
-    date: '2018-05-15',
+    date: '2023-04-29',
     field: 'aero',
     description: `The MAT 4: STAR is an autonomous aircraft with a maximum take off weight of 40 lbs, leveraging computer vision for 
     targeted payload deliveries. It can carry five 2.16 lb payloads, rotated and dropped via an in-fuselage revolving mechanism.`,
@@ -33,7 +44,7 @@ const projectsData = [
   },
   {
     title: 'MD-UAV',
-    date: '2019-05-15',
+    date: '2023-05-15',
     field: 'aero',
     description: `MD-UAV (Medical UAV) is an on going research project at the University of Michigan 
     with the aim to develop a Hybrid Vertical Take-off and landing aircraft for rapid deployments of 
@@ -44,7 +55,7 @@ const projectsData = [
   },
   {
     title: 'MD-UAV Lite',
-    date: '2019-05-15',
+    date: '2023-09-28',
     field: 'aero',
     description: `MD-UAV (Medical UAV) is an on going research project at the University of Michigan 
     with the aim to develop a Hybrid Vertical Take-off and landing aircraft for rapid deployments of 
@@ -66,9 +77,8 @@ const projectsData = [
     title: 'Portfolio Website Version 2',
     date: '2022-07-12',
     field: 'cs',
-    description: `Explore the making of this portfolio website, built with Next.js and hosted on Bluehost. This project serves as 
-    a comprehensive showcase of my skills in web development, UI/UX design, and more. Get insights into the technical architecture, 
-    features, and the challenges faced during development.`,
+    description: `An earlier version of my portfolio website, designed to offer a comprehensive look into my 
+    skills and projects. Built with HTML, CSS, and JavaScript, it features detailed project pages and interactive elements.`,
     skills: ['HTML', 'CSS', 'javascript', 'UI/UX', 'Graphic Design'],
     imgSrc: '/static/images/old-portfolio.png',
     href: '/project/portfolio-v2',
@@ -86,7 +96,7 @@ const projectsData = [
   },
   {
     title: 'FireFly',
-    date: '2016-05-15',
+    date: '2018-07-25',
     field: 'aero',
     description: `FireFly is a fire fighting hexacopter that uses a raspberry pi and a flight control 
     board to look for heat signatures corresponding to fire. It then flies towards it and 
@@ -98,7 +108,7 @@ const projectsData = [
   },
   {
     title: 'Robust',
-    date: '2015-05-15',
+    date: '2017-05-15',
     field: 'aero',
     description: `
     Robust is a 360-degree rotating robotic arm mounted on a UGV, initially crafted from balsa wood and controlled by a 16-channel remote for a science fair.
@@ -109,7 +119,7 @@ const projectsData = [
   },
   {
     title: 'Garber',
-    date: '2014-05-15',
+    date: '2017-08-15',
     field: 'aero',
     description: `Garber is a cleaning robot. 
     It utilises an articulated foam brush to collect big debris, while the smaller dust 
@@ -122,7 +132,7 @@ const projectsData = [
   },
   {
     title: 'Little Tornado',
-    date: '2013-05-15',
+    date: '2017-05-15',
     field: 'aero',
     description: `Little Tornado is a model aircraft that I designed myself. There are two variants of 
     Little Tornado: high wing and low wing. The high wing variant is easier to 
