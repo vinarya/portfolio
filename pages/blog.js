@@ -9,7 +9,7 @@ import Pagination from '@/components/Pagination'
 import formatDate from '@/lib/utils/formatDate'
 import { motion } from 'framer-motion'
 import kebabCase from '@/lib/utils/kebabCase'
-
+import Image from 'next/image'
 export const POSTS_PER_PAGE = 5
 
 export async function getStaticProps() {
@@ -190,8 +190,15 @@ export default function Blog({
                       {summary}
                     </div>
                   </div>
-                  <div className="pt-2 xl:col-start-6">
-                    <img alt={title} src={image} className="h-full w-full" loading="lazy" />
+                  <div className="relative h-full w-full p-36 pt-2 md:p-64 xl:col-start-6 xl:p-0 xl:pt-2">
+                    <Image
+                      alt={title}
+                      src={image}
+                      layout="fill"
+                      objectFit="cover"
+                      className="rounded-lg"
+                      loading="lazy"
+                    />
                   </div>
                 </article>
               </motion.li>

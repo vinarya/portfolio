@@ -1,4 +1,5 @@
 import Link from './Link'
+import Image from 'next/image'
 
 const FeaturedProject = ({ title, description, imgSrc, href }) => (
   <div className="md flex h-full justify-center p-2 md:w-full" style={{ minWidth: '50%' }}>
@@ -19,22 +20,22 @@ const FeaturedProject = ({ title, description, imgSrc, href }) => (
           (href ? (
             <Link href={href} aria-label={`Link to ${title}`}>
               <div className="flex w-full flex-shrink-0 justify-center py-1 ">
-                <img
-                  alt={title}
-                  src={imgSrc}
-                  className="h-full w-full object-cover object-center"
-                  loading="lazy"
-                />
+                <div className="object-cover object-center p-40 pt-0 lg:p-56">
+                  <Image
+                    layout="fill"
+                    objectFit="contain"
+                    alt={title}
+                    src={imgSrc}
+                    loading="lazy"
+                  />
+                </div>
               </div>
             </Link>
           ) : (
             <div className="pr-2s w-full flex-shrink-0 pl-2 pt-2">
-              <img
-                alt={title}
-                src={imgSrc}
-                className="h-full w-full object-cover object-center"
-                loading="lazy"
-              />
+              <div className="object-cover object-center p-40 pt-0 lg:p-56">
+                <Image layout="fill" objectFit="contain" alt={title} src={imgSrc} loading="lazy" />
+              </div>
             </div>
           ))}
       </div>

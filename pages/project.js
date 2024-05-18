@@ -4,6 +4,7 @@ import projectsData from '@/data/projectsData'
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from '@/components/Link'
 import { PageSEO } from '@/components/SEO'
+import Image from 'next/image'
 
 const colors = ['#FF6B6B', '#FFD93D', '#6BCB77', '#4D96FF']
 const colorsImg = [
@@ -32,12 +33,16 @@ const Card = ({ title, description, imgSrc, href, skills, date, index }) => (
             className="m-2 rounded"
             style={{ backgroundColor: colorsImg[index % colorsImg.length] }} // Wrap around the colors
           >
-            <img
-              alt={title}
-              src={imgSrc}
-              className="h-full w-full object-cover object-center"
-              loading="lazy"
-            />
+            <div className="relative rounded-md object-cover object-center py-20 xl:py-28">
+              <Image
+                alt={title}
+                src={imgSrc}
+                layout="fill"
+                objectFit="contain"
+                loading="lazy"
+                className="rounded-md"
+              />
+            </div>
           </div>
         </Link>
       )}

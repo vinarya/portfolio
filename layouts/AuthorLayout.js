@@ -3,6 +3,7 @@ import { GiViolin, GiRobotGrab, GiDeliveryDrone } from 'react-icons/gi'
 import { MdDesignServices } from 'react-icons/md'
 import React, { useState } from 'react'
 import { PageSEO } from '@/components/SEO'
+import Image from 'next/image'
 
 export default function AuthorLayout({ children, frontMatter }) {
   const { name, avatar, occupation, company, email, twitter, linkedin, github } = frontMatter
@@ -13,14 +14,16 @@ export default function AuthorLayout({ children, frontMatter }) {
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
         <div className=" flex flex-col items-center space-y-2  xl:gap-x-8 xl:space-y-0">
           <div className="relative flex flex-col items-center pt-8">
-            <div className="my-16 ">
-              <img
+            <div className="relative mb-20 mt-16 p-20">
+              <Image
                 alt="avatar"
                 src={avatar}
+                layout="fill"
+                objectFit="contain"
                 className="z-10 h-1/2 h-48 w-1/2 w-48 rounded-full"
                 loading="lazy"
               />
-              <div className="imgContainer">
+              <div className="imgContainer ">
                 <GiViolin size="2.7em" className="nodeLogo text-teal-500 " />
                 <GiDeliveryDrone size="3em" className="reactLogo text-teal-500 " />
                 <FaLaptopCode size="2.5em" className="babelLogo text-teal-500 " />

@@ -174,7 +174,7 @@ input:-webkit-autofill:focus {
   position: absolute;
   width: 200px; /* new */
   height: 200px;
-  transform: translate(37%, -59%);
+  transform: translate(-10%, -10%);
 }
 
 .App-intro {

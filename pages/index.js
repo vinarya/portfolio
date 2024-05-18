@@ -17,7 +17,7 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import FeaturedProject from '@/components/FeaturedProject'
-import { FaReact } from 'react-icons/fa'
+import Image from 'next/image'
 
 const DEFAULT_LAYOUT = 'AuthorLayout'
 
@@ -322,9 +322,11 @@ export default function About({ authorDetails }) {
                       transition={{ duration: 1 }} // animation duration
                     >
                       <div className="flex flex-col pb-3 sm:flex-row sm:items-center">
-                        <div className="mb-2 sm:mb-0 sm:mr-4 sm:w-1/3">
-                          <img
+                        <div className="relative mb-2 p-24 sm:mb-0 sm:mr-4 sm:w-1/3">
+                          <Image
                             alt={project.title}
+                            layout="fill"
+                            objectFit="contain"
                             src={project.imgSrc}
                             className="h-full w-full object-cover object-center"
                             loading="lazy"
@@ -368,8 +370,10 @@ export default function About({ authorDetails }) {
             </div>
             {eduData.map((project, index) => (
               <div key={index} className="flex h-1/4 flex-row items-center md:p-4">
-                <div className="flex w-1/4  items-center justify-center">
-                  <img
+                <div className="relative flex w-1/4  items-center justify-center p-10">
+                  <Image
+                    layout="fill"
+                    objectFit="contain"
                     alt={project.title}
                     src={project.imgSrc}
                     className="ml-4 h-full w-full object-contain p-1 md:p-3"
@@ -391,8 +395,10 @@ export default function About({ authorDetails }) {
             </div>
             {certData.map((project, index) => (
               <div key={index} className="flex h-1/4 flex-row items-center md:p-4 ">
-                <div className="flex w-1/4  items-center justify-center">
-                  <img
+                <div className="relative flex w-1/4 items-center  justify-center p-10">
+                  <Image
+                    layout="fill"
+                    objectFit="contain"
                     alt={project.title}
                     src={project.imgSrc}
                     className="ml-4 h-full w-full object-contain p-1 md:p-3"
@@ -426,12 +432,17 @@ export default function About({ authorDetails }) {
               <ReactCardFlip isFlipped={flipped[index]} flipDirection="horizontal">
                 {/* Front of the card */}
                 <div className="rounded-md border-2 border-gray-200 border-opacity-60 pb-2 dark:border-gray-700 ">
-                  <img
-                    className="h-48 w-full rounded-t-lg object-cover"
-                    src={card.imgSrc}
-                    alt={card.title}
-                    loading="lazy"
-                  />
+                  <div className="relative h-48 w-full rounded-t-lg">
+                    <Image
+                      layout="fill"
+                      objectFit="cover"
+                      src={card.imgSrc}
+                      alt={card.title}
+                      className="h-48 w-full rounded-t-lg object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+
                   <h2 className="mx-4 mt-2 text-xl font-bold leading-7 tracking-tight">
                     {card.title}
                   </h2>
@@ -458,14 +469,20 @@ export default function About({ authorDetails }) {
                   >
                     {card.img.map((img, i) => (
                       <div key={i}>
-                        <img
-                          className={`max-h-full max-w-full rounded-t-md ${
-                            card.title === 'FPV' ? 'object-fit' : 'object-contain'
+                        <div
+                          className={`relative rounded-t-md ${
+                            card.title === 'FPV' ? 'object-fit p-24' : 'object-contain py-56'
                           }`}
-                          src={img}
-                          alt={`Back ${i}`}
-                          loading="lazy"
-                        />
+                        >
+                          <Image
+                            layout="fill"
+                            objectFit={`${card.title === 'FPV' ? 'cover' : 'cover'}`}
+                            src={img}
+                            alt={`Back ${i}`}
+                            loading="lazy"
+                          />
+                        </div>
+
                         <div className="p-4">
                           <p className="text-center text-teal-500 dark:text-teal-400">
                             {card.captions[i]}

@@ -6,6 +6,7 @@ import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import Comments from '@/components/comments'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
+import Image from 'next/image'
 
 const editUrl = (fileName) => `${siteMetadata.siteRepo}/blob/master/data/blog/${fileName}`
 const discussUrl = (slug) =>
@@ -55,16 +56,20 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                 <ul className="flex justify-center space-x-8 sm:space-x-12 xl:block xl:space-x-0 xl:space-y-8">
                   {authorDetails.map((author) => (
                     <li
-                      className="flex flex-col items-center space-x-2 xl:flex-row xl:pb-9"
+                      className=" flex flex-col items-center space-x-2 xl:flex-row xl:pb-9"
                       key={author.name}
                     >
                       {author.avatar && (
-                        <img
-                          alt="avatar"
-                          src={author.avatar}
-                          className="w-1/6 rounded-full lg:w-1/5"
-                          loading="lazy"
-                        />
+                        <div className="relative p-6">
+                          <Image
+                            layout="fill"
+                            alt="avatar"
+                            objectFit="contain"
+                            src={author.avatar}
+                            className="w-1/6 rounded-full lg:w-1/5"
+                            loading="lazy"
+                          />
+                        </div>
                       )}
                       <dl className="whitespace-nowrap text-sm font-medium leading-5">
                         <dt className="sr-only">Name</dt>
@@ -90,11 +95,13 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                           <h2 className="text-center text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
                             {`Previous ${type === 'project' ? 'Project' : 'Article'}`}
                           </h2>
-                          <div className="py-2 pt-2">
-                            <img
+                          <div className="relative py-16 pt-2">
+                            <Image
                               alt={prev.title}
                               src={prev.image}
-                              className="h-full w-full object-cover object-center"
+                              objectFit="contain"
+                              layout="fill"
+                              className="h-full w-full rounded-md object-cover object-center"
                               loading="lazy"
                             />
                           </div>
@@ -139,11 +146,13 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                           <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
                             {`Previous ${type === 'project' ? 'Project' : 'Article'}`}
                           </h2>
-                          <div className="py-2 pt-2">
-                            <img
+                          <div className="relative p-16 pt-2">
+                            <Image
                               alt={prev.title}
+                              layout="fill"
+                              objectFit="contain"
                               src={prev.image}
-                              className="h-full w-full object-cover object-center"
+                              className="h-full w-full rounded-md object-cover object-center"
                               loading="lazy"
                             />
                           </div>
@@ -159,11 +168,13 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                           <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
                             {`Next ${type === 'project' ? 'Project' : 'Article'}`}
                           </h2>
-                          <div className="py-2 pt-2">
-                            <img
+                          <div className="relative p-16 pt-2">
+                            <Image
                               alt={next.title}
                               src={next.image}
-                              className="h-full w-full object-cover object-center"
+                              layout="fill"
+                              objectFit="contain"
+                              className="h-full w-full rounded-md object-cover object-center"
                               loading="lazy"
                             />
                           </div>
