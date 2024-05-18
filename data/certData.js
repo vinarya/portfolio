@@ -35,6 +35,18 @@ const certData = [
     imgSrc: '/static/images/certifications/faa.png',
     href: 'https://www.safe.security/',
   },
+  {
+    title: 'FAA Remote Pilot License',
+    companyName: 'SAFE Security',
+    jobPosition: 'Cyber Security Research Intern',
+    startDate: 'May, 2022',
+    endDate: 'August, 2022',
+    description: `What if you could look up any information in the world? Webpages, images, videos
+    and more. Google has many features to help you find exactly what you're looking
+    for.`,
+    imgSrc: '/static/images/certifications/faa.png',
+    href: 'https://www.safe.security/',
+  },
 ]
 
 export default certData

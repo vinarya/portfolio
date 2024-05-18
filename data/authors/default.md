@@ -11,7 +11,7 @@ github: https://github.com
 
 Hey there, I am Vinamr.
 
-Born and brought up in India, I graduated in the summer of 2023 with degrees in Aerospace Engineering and Computer Science from the University of Michigan. I am currently working as a research assistant at the University of Michigan's Aero Department. I have a passion for problem-solving and building innovative solutions. Creativity, innovation, and collaboration are the core values that guide me in my professional journey.
+Born and brought up in India, I graduated in the summer of 2023 with degrees in Aerospace Engineering and Computer Science from the University of Michigan. I am currently pursuing my masters in aerospace engineering at Arizona State University where I also work part-time as a Graduate Research Assistant (GRA). I have a passion for problem-solving and building innovative solutions. Creativity, innovation, and collaboration are the core values that guide me in my professional journey.
 
 I have experience leading teams and have been actively involved in various projects. My current focus is on designing and building eVTOL aircraft for the rapid deployment of medical supplies. In my free time, I enjoy watching documentaries, working on model airplanes, and playing cricket.
 

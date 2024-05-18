@@ -1,10 +1,38 @@
 const workData = [
   {
+    title: 'Arizona State University',
+    companyName: 'Arizona State University, Aerospace Engineering',
+    jobPosition: 'Graduate Research Assistant',
+    startDate: 'January, 2024',
+    endDate: 'Present',
+    description: [
+      'Developing novel configurations of elictric Vertical take-off and landing aircrafts for long range deployment of medical supplies.',
+      'Working with industry experts and notable academic digintaries to develop analysis methods for fatigue and cracking of advanced composites.',
+    ],
+    imgSrc: '/static/images/work/asu-eng.png',
+    href: 'https://aero.engin.umich.edu/',
+  },
+  {
+    title: 'Meet Your Class',
+    companyName: 'Meet Your Class',
+    jobPosition: 'Full Stack Developer',
+    startDate: 'July, 2023',
+    endDate: 'January, 2024',
+    description: [
+      'Created and maintained various webpages for Meet Your Class platform',
+      'Used Next.JS for server and client side front end development',
+      'Implemented pagination using Firebase and FireStore',
+      'Played instrumental role in migration from Google Firestore to Amazon Web Services',
+    ],
+    imgSrc: '/static/images/work/myc.png',
+    href: 'https://aero.engin.umich.edu/',
+  },
+  {
     title: 'University Of Michigan',
     companyName: 'University of Michigan, Aerospace Engineering',
     jobPosition: 'Research Assistant',
     startDate: 'June, 2021',
-    endDate: 'Present',
+    endDate: 'January, 2024',
     description: [
       'Guided a team in designing a CAD model of a hybrid-electric tilt-rotor quad plane, aimed at quick delivery of medical supplies to remote Ghana areas. Collaborated with stakeholders such as BlueFlite, KNUST (Ghana), and the University of Michigan.',
       'Set up and executed testing protocols for the drones components, including thrust tests for propellers and tethered flight tests for PID controller tuning, paving the way for successful future flights.',
