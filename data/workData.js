@@ -22,7 +22,7 @@ const workData = [
       'Created and maintained various webpages for Meet Your Class platform',
       'Used Next.JS for server and client side front end development',
       'Implemented pagination using Firebase and FireStore',
-      'Played instrumental role in migration from Google Firestore to Amazon Web Services',
+      'Initiated migration from Google Firestore to Amazon Web Services',
     ],
     imgSrc: '/static/images/work/myc.png',
     href: 'https://aero.engin.umich.edu/',
