@@ -1,7 +1,7 @@
 ---
 name: Vinamr Arya
 avatar: /static/images/avatar 2.png
-occupation: Aerospace Engineer | Computer Scientist | Pilot
+occupation: Aerospace Engineer | Software Developer | Pilot
 company: University of Michigan
 email: me@vinamrarya.com
 twitter: https://twitter.com/Twitter
