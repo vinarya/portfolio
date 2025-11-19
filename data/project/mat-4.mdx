@@ -1,14 +1,23 @@
 ---
-title: MAT-4
+title: 'MAT 4 – UAV for Autonomous Payload Delivery'
 date: '2023-04-29'
-tags: ['VTOL','QuadPlane','CAD/CAM','PX-4','Composites','Additive Manufacturing']
+tags:
+  [
+    'UAV',
+    'SUAS',
+    'Payload Delivery',
+    'Aero Design',
+    'Composite Structures',
+    'Autonomy',
+    'Pixhawk',
+    'CAD',
+    'FEA',
+  ]
 draft: false
-summary: 'MD-UAV or Medical UAV, is an on going research project at the University of Michigan with the aim to develop a Hybrid Vertical Take-off and 
-landing aircraft for rapid deployments of medical supplies in remote regions.'
+summary: 'MAT-4 is a 40 lb autonomous fixed-wing UAV developed for the AUVSI SUAS competition, designed for long-range waypoint navigation and precision payload delivery using an internally integrated drop mechanism.'
 type: 'project'
 image: '/static/images/mat-4.png'
 ---
-
 
 <div className="project-video mb-8">
   <iframe
@@ -17,18 +26,61 @@ image: '/static/images/mat-4.png'
     allowFullScreen
     style={{ width: '100%', height: '29.75em' }}
   ></iframe>
-  
 </div>
-# Overview: The MAT-4 aircraft
-The MAT-4 was developed for the AUVSI competition, which required flying over a specific area to identify ground targets and deliver payloads accurately 
-from a height of 100 feet. The payloads consisted of 16 oz water bottles, and the scoring was based on the precision of the deliveries.
 
+## Introduction
 
+**MAT-4** is the aircraft designed by University of Michigan's **M-Fly** Student team for the 2022-2023 AUVSI SUAS Competition. The aircraft was engineered to carry out precise payload delivery missions, navigate a multi-mile waypoint course, and comply with FAA’s 55 lb maximum takeoff weight requirement.
 
-# Role and Contributions:
+The project features a high-aspect-ratio wing, composite construction, an internally-housed payload-delivery mechanism, and a full autonomous stack built around Pixhawk 4, Jetson Nano, and onboard computer vision. Development followed a structured process of aerodynamic sizing, structural design, propulsion testing, and systems integration, supported by repeated flight testing and validation using real-world mission profiles.
 
-In my role as the Structures Lead for the MAT-4, I contributed to the aircraft's design, keeping in mind the FAA's 55 lbs weight limit for UAVs. The goal 
-was to maximize payload capacity without exceeding this limit.
+> For more about the **M-Fly team**, please visit [mfly.engin.umich.edu](https://mfly.engin.umich.edu/).
+
+---
+
+## SUAS Competition Requirements
+
+The AUVSI SUAS rules required the aircraft to:
+
+- Navigate a **12-mile mission** through GPS waypoints
+- Remain within **75–400 ft AGL**
+- Deliver **five 16-oz payloads** with high positional accuracy
+- Complete the mission within a **30-minute time limit**
+- Perform manual takeoff/landing but operate **autonomously** in flight
+- Stay below **55 lbs MTOW**
+
+These constraints shaped every major design decision, from aerodynamic layout to propulsion sizing, payload integration, and autonomy.
+
+---
+
+## Design Approach and System Architecture
+
+The project philosophy centered on **simplicity, reliability, and iterative testing**. Early in development, the team prioritized:
+
+- A **single-motor propulsion layout** for efficiency
+- A **taildragger configuration** for robustness and weight savings
+- Internally integrated **payload housing** to maintain center of gravity
+- Composite wings and fuselage for a strong weight-to-stiffness ratio
+- A modular avionics stack for maintainability and rapid troubleshooting
+
+This approach ensured that each subsystem—structures, aerodynamics, propulsion, autonomy, and hardware—was developed in parallel yet remained tightly integrated. Much of the content below is supported by detailed design data in the team’s technical documentation and CDR deck.
+
+---
+
+## Aerodynamic Design
+
+MAT-4 uses a high-aspect-ratio **11.25 ft wingspan** wing built around the **MH114** airfoil, selected for its high lift-to-drag ratio and suitability for long-endurance missions. Aerodynamic sizing placed the aircraft’s wing area at **12.875 ft²** with a design point of:
+
+- T/W ≈ 0.4
+- W/S ≈ 3.09 lb/ft²
+
+AVL and OpenVSP trade studies were used to size the horizontal and vertical stabilizers and to assess static and dynamic stability. Key findings included:
+
+- 6.1% static margin, giving stable pitch behavior
+- Level-1 dynamic stability in short period, roll, and Dutch roll modes
+- Control surfaces sized for low deflection angles even during steep turns
+
+The aerodynamic layout—semi-tapered wing, conventional tail, and wingtip fences—was optimized for endurance and handling consistency across loading conditions.
 
 <div className="flex flex-wrap justify-around">
   <img
@@ -41,22 +93,16 @@ was to maximize payload capacity without exceeding this limit.
   />
 </div>
 
-I was also involved in creating a payload delivery vehicle, which was 18 inches long and 3 inches in diameter. It featured a parachute housing mechanism activated 
-by a barometric sensor at a predetermined height. This approach was simpler and less power-intensive than some alternatives.
+---
 
-<div className="flex flex-wrap justify-around">
-  <img
-    src="/static/images/project/mat-4/mat-5.PNG"
-    className="m-2 w-full sm:w-1/2 md:w-1/3 lg:w-47_5"
-  />
-  <img
-    src="/static/images/project/mat-4/mat-7.PNG"
-    className="m-2 w-full sm:w-1/2 md:w-1/3 lg:w-47_5"
-  />
-</div>
+## Structural Design
 
-To maintain the aircraft's center of gravity, the payloads were strategically placed under the wing, inside the fuselage. This required a tail dragger landing gear 
-configuration and helped ensure consistent stability during payload drops.
+As Structures Lead, I oversaw the structural layout, composite selection, mass budgeting, and manufacturability of the aircraft. The design used:
+
+- Composite fuselage for weight-efficient stiffness
+- Carbon-fiber leading edge + spars in the wings
+- Hybrid ribs (balsa, lite-ply, CFRP reinforcements)
+- Additively manufactured components such as the motor duct, radar cover, and servo hatches
 
 <div className="flex flex-wrap justify-around">
   <img
@@ -69,10 +115,104 @@ configuration and helped ensure consistent stability during payload drops.
   />
 </div>
 
-# Impact:
+The fuselage was divided into four functional sections:
 
-Our aircraft was the only one among the three M-Fly teams that was able to fly at the end of the year. Moreover, both the rotating barrel mechanism and the payload delivery 
-vehicle performed as expected, showcasing the design's effectiveness and the successful teamwork across disciplines.
+1. **Section A:** Motor, motor duct, Jetson Nano
+2. **Section B:** Avionics + batteries under a large service hatch
+3. **Section C:** Payload bay with servo-operated hatch and drop mechanism
+4. **Section D:** Tail boom receiver and empennage mounting
+
+This layout maximized usable internal volume while keeping wiring routing and maintenance straightforward.
+
+---
+
+## Payload Delivery System
+
+Payload delivery was one of the primary mission requirements. MAT-4 utilized a robust **revolver-style drop mechanism** housed inside the fuselage to minimize drag and ensure CG consistency.
+
+Key features:
+
+- Can carry **five 16-oz water-bottle payloads**
+- Carbon-fiber dowel reinforcement for the rotating rack
+- Servo-driven release synchronized with flight computer commands
+- Payloads loaded and dispensed through the aircraft belly
+- Integrated parachute housing with **spring-loaded doors** for clean deployment
+
+Sensor integration included a **BMP390 altimeter** and microcontroller-based trigger logic for parachute release.
+
+<div className="flex flex-wrap justify-around">
+  <img
+    src="/static/images/project/mat-4/mat-5.PNG"
+    className="m-2 w-full sm:w-1/2 md:w-1/3 lg:w-47_5"
+  />
+  <img
+    src="/static/images/project/mat-4/mat-7.PNG"
+    className="m-2 w-full sm:w-1/2 md:w-1/3 lg:w-47_5"
+  />
+</div>
+
+---
+
+## Propulsion System
+
+MAT-4 uses a **Hacker Q80 brushless motor** paired with a **24×13 carbon-fiber propeller**, producing approximately **15.6 lbs** of static thrust. Two **6S 8000 mAh** batteries (wired in parallel) power the propulsion system, delivering:
+
+- ~20 minutes of expected flight time
+- Adequate thrust margin across all loading configurations
+- Efficient cruise at ~60 ft/s, with ~3.23 lbs of drag at that velocity
+
+Propulsion trades included dual-motor vs single-motor configurations, ESC sizing, and wind-tunnel-aligned simulations for dynamic thrust predictions.
+
+---
+
+## Autonomous Flight and Computer Vision
+
+Autonomy on MAT-4 was built around Pixhawk 4 and Jetson Nano, with radar-based obstacle avoidance and on-board computer vision.
+
+### Autonomy Highlights
+
+- LIAN (Limited Angle) algorithm for path planning
+- Radar-assisted real-time obstacle detection
+- MAVLink + ROS 2 galactic for navigation and mission control
+- Custom GUI for waypoint visualization and routing
+- Manual takeoff/landing with fully autonomous cruise and drop profiles
+
+### Computer Vision
+
+- OpenCV for object detection, contour extraction, and color standardization
+- Tesseract OCR for character recognition
+- Preliminary YOLO integration for emergent object detection
+
+These systems worked together to localize targets, classify markings, and coordinate drop timing.
+
+---
+
+## Role and Contributions
+
+As Structures Lead, my contributions included:
+
+- **Designing the aircraft’s structural architecture**, including composite layups, wing/tail structure, and fuselage segmentation
+- Performing **CAD modeling**, structural analysis, and manufacturability planning
+- Overseeing the **payload mechanism integration** and ensuring CG consistency
+- Leading **subteam meetings** and coordinating across aerodynamics, propulsion, and flight systems
+- Mentoring newer M-Fly members in **CAD, FEA, and composite fabrication techniques**
+- Supporting testing operations, including structural tests, payload deployment trials, and final integration
+
+These tasks ensured that MAT-4 remained within the weight budget, met structural requirements, and maintained reliability through iterative testing.
+
+---
+
+## Testing and Performance
+
+MAT-4 underwent repeated subsystem and full-aircraft testing, including:
+
+- Static thrust testing using load cells and thrust carts
+- Control surface torque validation
+- Drop-mechanism cycle testing
+- Radar and autonomy simulations
+- Full-aircraft taxi, takeoff, and waypoint-tracking tests
+
+The final integrated airframe demonstrated reliable flight behavior and consistent payload deployment performance, validating the design approach and confirming readiness for competition operations.
 
 <div className="flex flex-wrap justify-around">
   <img
@@ -84,3 +224,9 @@ vehicle performed as expected, showcasing the design's effectiveness and the suc
     className="m-2 w-full sm:w-1/2 md:w-1/3 lg:w-47_5"
   />
 </div>
+
+---
+
+## Conclusion
+
+MAT-4 brought together aerodynamic optimization, composite structural design, advanced propulsion, and autonomous systems into a cohesive fixed-wing UAV capable of executing long-range waypoint missions and precision payload delivery. The project served as an excellent engineering exercise in multidisciplinary collaboration, systems integration, and iterative development—providing valuable experience that directly influenced later UAV work in my portfolio.

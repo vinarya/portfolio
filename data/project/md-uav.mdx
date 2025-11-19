@@ -1,44 +1,40 @@
 ---
-title: MD-UAV
+title: MD-UAV – Tiltrotor VTOL UAV
 date: '2023-05-15'
-tags: ['VTOL','QuadPlane','CAD/CAM','PX-4','Composites','Additive Manufacturing']
+tags:
+  ['VTOL', 'Tiltrotor', 'Hybrid UAV', 'PX4', 'ArduPilot', 'Wind Tunnel', 'OpenVSP', 'FlightStream']
 draft: false
-summary: 'MD-UAV or Medical UAV, is an on going research project at the University of Michigan with the aim to develop a Hybrid Vertical Take-off and 
-landing aircraft for rapid deployments of medical supplies in remote regions.'
+summary: 'MD-UAV is a hybrid VTOL aircraft developed at the University of Michigan to explore rapid medical delivery in remote regions, combining aerodynamic analysis, structural redesign, and propulsion testing.'
 type: 'project'
 image: '/static/images/mduav.png'
 ---
 
 ![md-uav](/static/images/project/mduav/mduav-1.jpg)
 
-# Introduction
-In the summer of 2021, I took over as the lead for a  research project called MD-UAV (Medical Unmanned Aerial Vehicle) at the University of Michigan's Aerospace Engineering Department. The project aims to deploy VTOL (Vertical Take-Off and Landing) aircraft in remote regions for the rapid delivery of medical supplies. The project is under the guidance of Professor Anthony Waas, and we are collaborating with BlueFlite, a drone manufacturer, and KNUST in Ghana.
+## Introduction
 
-# Background
-When I assumed leadership, the project was already midway through its development phase. The previous team had a design and had started building the aircraft. However, upon reviewing the CAD designs, I sensed that there were inefficiencies that needed to be addressed.
+**MD-UAV** (Medical Unmanned Aerial Vehicle) was a research initiative within the University of Michigan’s Aerospace Engineering Department, conducted under the guidance of **Dr. Anthony Waas**. The goal was to develop a **tiltrotor VTOL aircraft** capable of delivering medical supplies to remote or infrastructure-limited regions.
+
+I joined the project as the new lead in Summer 2021, inheriting a partially built tiltrotor airframe from the previous team. What followed was a comprehensive re-evaluation of the design—structurally, aerodynamically, and mechanically—to determine what could be salvaged, what required redesign, and what lessons could shape future UAV platforms.
+
+---
+
+## Assessment of the Inherited Design
+
+Upon taking over the project, it became clear that the existing airframe suffered from significant structural and integration issues. The carbon-fiber spars had been attached in a way that introduced **excessive vibration**, which in turn made the aircraft nearly impossible to tune on PX4 or ArduPilot, especially given its large rotor diameter and overall size.
+
+Additionally:
+
+- The **tiltrotor mechanism** exhibited reliability concerns.
+- Several subsystems lacked proper documentation and traceability.
+- Component sizing and structural assumptions required verification.
+- The partially built frame limited redesign options without major rework.
+
+Rather than forcing the aircraft to fly in an unsafe configuration, I began a systematic investigation of propulsion, aerodynamics, stability, and firmware tuning behavior to understand the limits of the inherited design.
 
 <div className="flex flex-wrap justify-around">
   <img
     src="/static/images/project/mduav/mduav-8.jpg"
-    className="m-2 w-full sm:w-1/2 md:w-1/3 lg:w-47_5"
-  />
-  <img
-    src="/static/images/project/mduav/mduav-10.jpg"
-    className="m-2 w-full sm:w-1/2 md:w-1/3 lg:w-47_5"
-  />
-</div>
-
-# Design Reevaluation and Modifications
-I brought my concerns to Professor Waas and initiated a comprehensive review of the existing design. My team and I double-checked the calculations made by the previous team. Through rigorous analysis and collaboration, we were able to significantly reduce the size of the aircraft while maintaining its core functionalities. This was a challenging task, considering we had to modify an already partially built aircraft.
-
-# Technical Specifications
-<ul>
-  <li>Maximum Takeoff Weight (MTOW): 45 lbs</li>
-  <li>Estimated Range: 30 km</li>
-</ul>
-<div className="flex flex-wrap justify-around">
-  <img
-    src="/static/images/project/mduav/mduav-2.jpg"
     className="m-2 w-full sm:w-1/2 md:w-1/3 lg:w-47_5"
   />
   <img
@@ -47,10 +43,56 @@ I brought my concerns to Professor Waas and initiated a comprehensive review of 
   />
 </div>
 
+---
 
-# Testing and Tuning
+## Aerodynamic and Structural Reevaluation
 
-We conducted static and dynamic thrust tests in the University of Michigan's 5x7 feet wind tunnel. Based on the test results, we decided to add a dedicated engine with a pusher propeller to enhance the aircraft's performance. The vertical flight tuning of the aircraft has also been successfully completed.
+To reassess the aircraft’s viability, I re-performed key trade studies and simulations using **OpenVSP**, **FlightStream**, and **STAR-CCM+**. These tools helped evaluate:
+
+- pressure distribution across the wings
+- rotor–wing aerodynamic interference
+- hover-to-cruise transition loads
+- structural deflection under VTOL thrust
+- overall aerodynamic efficiency
+
+The studies confirmed several issues with the original configuration and identified areas where redesign was necessary. They also provided a clearer foundation for future hybrid VTOL concepts within the project.
+
+---
+
+## Propulsion System Testing
+
+A major portion of the reevaluation involved conducting **dynamic thrust tests** in the **University of Michigan’s 5×7 ft wind tunnel**. These tests provided accurate data on:
+
+- thrust behavior under varying inflow conditions
+- rotor performance during transition speeds
+- power loading at different disk angles
+- whether a forward-flight pusher motor was required
+
+The wind tunnel data ultimately informed our cruise and maximum velocity estimates, while also exposing limitations of the tiltrotor setup at higher advance ratios.
+
+<div className="flex flex-wrap justify-around">
+  <img
+    src="/static/images/project/mduav/dynamic-thrust-test-front.jpg"
+    className="m-2 w-full sm:w-1/2 md:w-1/3 lg:w-47_5"
+  />
+  <img
+    src="/static/images/project/mduav/dynamic-thrust-test-back.jpg"
+    className="m-2 w-full sm:w-1/2 md:w-1/3 lg:w-47_5"
+  />
+</div>
+
+---
+
+## Firmware Tuning and Vibration Issues
+
+Much of the project’s engineering time went into **tuning PX4 and ArduPilot** for such a large hybrid VTOL platform. The goal was to stabilize hover, reduce oscillations, and prepare the aircraft for untethered transition tests.
+
+However, the inherited airframe’s **high vibration levels** caused severe sensor noise, preventing:
+
+- stable attitude estimation
+- reliable motor mixing
+- EKF convergence
+- proper PID tuning
 
 <div className="flex flex-wrap justify-around">
   <img
@@ -63,11 +105,49 @@ We conducted static and dynamic thrust tests in the University of Michigan's 5x7
   />
 </div>
 
-# Collaboration and Future Goals
+This experience pushed me into a deep exploration of:
 
-We are fortunate to collaborate with BlueFlite and KNUST, Ghana, which adds valuable perspectives and expertise to our project. The ultimate goal is to deploy these VTOL aircraft in remote regions to expedite the delivery of medical supplies, potentially saving lives.
+- filter tuning (IMU filtering, notch filters, low-pass settings)
+- control loop structure in PX4
+- encoder tracking for tilt-mechanisms
+- power system noise isolation
+- firmware-level motor output testing
 
-# Conclusion
+These lessons later shaped my design philosophy for **Kestrel Mini** and subsequent UAVs: avoid moving parts wherever possible.
 
-The MDUAV project has been a journey of learning, innovation, and teamwork. We have successfully redesigned and tested an efficient VTOL aircraft capable of fulfilling its mission. As we move forward, we are excited about the potential impact this project could have on healthcare delivery in remote regions.
+---
 
+## Transition to MD-UAV Lite
+
+Through months of simulation, structural analysis, manufacturing assessment, and propulsion testing, it became clear that significant aspects of the inherited airframe could not be brought to a reliable flight state.
+
+However, the **components, data, and lessons learned** were instrumental in shaping a new aircraft: **MD-UAV Lite**.
+
+This successor model was:
+
+- smaller, lighter, and easier to manufacture
+- built around **rigid, vibration-resistant geometries**
+- redesigned for better component placement
+- structured around simpler, more dependable VTOL principles
+
+MD-UAV Lite—and later, **Kestrel Mini**—represented the distilled outcome of everything learned through the larger MD-UAV aircrat.
+
+---
+
+## Collaborators
+
+MD-UAV was developed in collaboration with:
+
+- **BlueFlite**, a commercial VTOL drone manufacturer
+- **KNUST, Ghana**, for operational relevance in remote medical logistics
+- Faculty and student teams within the **Composite Structures Lab**
+
+These partnerships helped shape the long-term goals of the program and provided insight into the practical challenges of deploying VTOL aircraft for medical outreach.
+
+---
+
+## Conclusion
+
+MD-UAV served as an important transitional project: a chance to critically evaluate a large hybrid VTOL airframe, identify its structural and aerodynamic shortcomings, and build the experimental knowledge that informed more mature UAV platforms.
+
+The project provided deep experience in **wind tunnel testing, firmware tuning, structural redesign, and hybrid-VTOL system analysis**, ultimately shaping the more successful and reliable designs that followed.

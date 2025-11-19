@@ -1,45 +1,24 @@
 ---
 title: 'Kestrel Mini – Tandem-Wing Tailsitter VTOL UAV'
 date: '2023-10-09'
-tags:
-  [
-    'VTOL',
-    'Tailsitter',
-    'UAV',
-    'eVTOL',
-    'Tandem Wing',
-    'CAD/CAM',
-    'Additive Manufacturing',
-    'OpenVSP',
-  ]
+tags: ['VTOL', 'Tailsitter', 'UAV', 'eVTOL', 'Tandem Wing', 'OpenVSP', 'VSPAero', '3D Printing']
 draft: false
-summary: 'Kestrel Mini is a lightweight tandem-wing tailsitter VTOL UAV designed as a research platform for aerodynamic trade studies, structural testing, and transition-flight validation.'
+summary: 'Kestrel Mini is a 3D-printed tandem-gull-wing tailsitter VTOL UAV developed to study geometric stability, transition aerodynamics, and low-complexity eVTOL design.'
 type: 'project'
 image: '/static/images/palindrone.png'
 ---
 
-![palindrone](/static/images/project/palindrone/palindrone-1.PNG)
+![kestrel-mini](/static/images/project/palindrone/kestrel-outdoors.jpeg)
 
-Kestrel Mini is a **tandem-wing tailsitter VTOL UAV** developed as a lightweight research aircraft for studying **aerodynamic stability, transition flight, and efficient eVTOL design**. Featuring a fully **3D-printed modular airframe** and a **gull/inverted-gull wing configuration**, the aircraft serves as a practical platform for validating design choices through both **simulation** and **real flight testing**.
+## Introduction
 
-This project ultimately supported the results presented in my thesis, which includes **OpenVSP and VSPAero trade studies**, structural analysis, and empirical testing.  
-_(Thesis link can be added here.)_
+**Kestrel Mini** is a compact, fully 3D-printed **tandem-wing tailsitter VTOL UAV** developed as an experimental platform to investigate whether a VTOL aircraft can achieve stable hover, controllable transitions, and efficient forward flight using only **fixed-pitch rotors** and **geometric stability**. The project integrates aerodynamic modeling, structural design, and iterative prototyping to arrive at a configuration that requires no tilt mechanisms or aerodynamic control surfaces.
 
 ---
 
-## Project Overview
+## Initial Modeling and Concept Development
 
-Kestrel Mini was created to answer a key research question:
-
-> **_Can a small, mechanically simple VTOL aircraft achieve stable hover, smooth transition, and efficient forward flight using geometry alone—without tilting rotors or control surfaces?_**
-
-To explore this, I developed a compact UAV that integrates:
-
-- **Tandem-wing layout** for improved lift distribution
-- **Gull + inverted-gull geometry** for natural stability
-- **Four-motor differential-thrust control**
-- **Modular 3D-printed structure** for rapid iteration
-- **Custom aerodynamic tuning using OpenVSP/VSPAero**
+The design process began in **OpenVSP**, where an initial straight-tandem configuration was created to explore fundamental parameters such as wingspan, airfoil selection, and wing incidence. Early aerodynamic trade studies examined lift distribution, pitching moments, and stall behavior. These studies showed that a **slightly higher incidence on the front wing** produced a consistent nose-down restoring moment, offering passive pitch stability in forward flight.
 
 <div className="mb-6 flex flex-wrap justify-around">
   <img
@@ -50,163 +29,125 @@ To explore this, I developed a compact UAV that integrates:
     src="/static/images/project/palindrone/palindrone-3.PNG"
     className="m-2 w-full sm:w-1/2 md:w-1/3 lg:w-47_5"
   />
-</div>
-
----
-
-## Design Goals
-
-The primary goals of the Kestrel Mini project were to:
-
-### **✔ Develop a compact tailsitter UAV for research**
-
-The aircraft needed to be easy to build, inexpensive to repair, and flexible enough for rapid testing.
-
-### **✔ Study aerodynamic stability using OpenVSP/VSPAero**
-
-Trade studies were used to analyze pitching moment, lift distribution, wing incidence, motor placement, and stall characteristics.
-
-### **✔ Validate the design through real flight testing**
-
-The platform functions as a bridge between simulation, prototype fabrication, and flight validation.
-
----
-
-## Aerodynamic Analysis (OpenVSP & VSPAero)
-
-Before fabrication, I performed a series of aerodynamic trade studies using **OpenVSP** and **VSPAero**.  
-These simulations helped optimize the geometry and predicted how the UAV would behave in forward flight and transition.
-
-### **Key Aerodynamic Findings**
-
-- A **+4° front wing incidence** produced a stable nose-down restoring moment.
-- The **front wing stalls first**, improving passive pitch recovery during transition.
-- The **gull + inverted-gull angles** acted like a **V-tail**, improving roll and yaw damping.
-- Vertical motor placement did **not reduce control authority** in hover, enabling true multi-plane wing layouts.
-- Tandem wings improved static margin and CG flexibility, making the aircraft easier to balance.
-
-These findings directly influenced the final printed design and reduced the number of physical iterations required.
-
----
-
-## Airframe Design & Construction
-
-Kestrel Mini is built entirely from **modular 3D-printed PETG components** with carbon-fiber spars for reinforcement.  
-The interlocking design allows **tool-less assembly**, fast repairs, and easy swapping of wing sets for aerodynamic testing.
-
-### **Design Features**
-
-- Fully 3D-printed fuselage, wings, and fairings
-- Carbon-fiber spars for stiffness
-- No glue or fasteners (except motor screws)
-- Interchangeable modules for quick iteration
-- Average airframe cost: **under $50**
-
-<div className="flex flex-wrap justify-around">
-  <img
-    src="/static/images/project/palindrone/palindrone-4.PNG"
-    className="m-2 w-full sm:w-1/2 md:w-1/3 lg:w-47_5"
-  />
-  <img
-    src="/static/images/project/palindrone/palindrone-5.PNG"
-    className="m-2 w-full sm:w-1/2 md:w-1/3 lg:w-47_5"
-  />
-</div>
-
----
-
-## Hardware & Flight Controller Setup
-
-**Propulsion**
-
-- **4 × 2207 – 1800 KV motors**
-- **5 × 3** tri-blade propellers
-- **1300 - 2200 mAh 6S LiPo**
-
-**Electronics**
-
-- STM32-based flight controller running **Betaflight**
-- Custom **tailsitter mixer configuration**
-- Two PID profiles: one for hover, one for forward flight
-- Differential thrust for all attitude control
-
-This setup allowed clean hover performance and smooth transitions without requiring servos or tilt mechanisms.
-
----
-
-## Flight Testing & Validation
-
-Kestrel Mini underwent indoor and outdoor test flights to compare real behavior with simulation predictions.
-
-### **Hover Flight**
-
-- Stable hover at ~26% throttle
-- Minimal torque twist due to the X-frame gull-wing structure
-- Clean response to manual inputs
-
-### **Transition to Forward Flight**
-
-- Smooth 90° pitch-over in ~2–4 seconds
-- < 2 meters of altitude loss
-- Passive pitch stability matched VSPAero predictions
-
-### **Forward Flight**
-
-- Lower power consumption than hover
-- Stable cruise with minimal pilot input
-- Strong roll/yaw damping from the gull-wing geometry
-
-<div className="mb-6 flex flex-wrap justify-around">
   <img
     src="/static/images/project/palindrone/palindrone-6.jpeg"
     className="m-2 w-full sm:w-1/2 md:w-1/3 lg:w-47_5"
   />
   <img
-    src="/static/images/project/palindrone/palindrone-7.jpeg"
+    src="/static/images/project/palindrone/palindrone-8.jpeg"
+    className="m-2 w-full sm:w-1/2 md:w-1/3 lg:w-47_5"
+  />
+</div>
+
+With these preliminary results, the first physical prototype—featuring a simple I-beam fuselage and straight tandem wings—was fabricated to validate basic hover performance and structural behavior.
+
+---
+
+## Structural Evolution and X-Frame Geometry
+
+Flight testing of the initial prototype revealed significant **torsional twist** along the fuselage during differential thrust maneuvers. This structural flexibility introduced lag in control response and made the aircraft difficult to stabilize. To address this issue, the wing architecture was redesigned.
+
+<div className="flex flex-wrap justify-around ">
+  <img
+    src="/static/images/project/palindrone/vspAero.png"
+    className="m-2 w-full sm:w-1/2 md:w-1/3 lg:w-47_5"
+  />
+  <img
+    src="/static/images/project/palindrone/pitching moment plot.png"
+    className="m-2 w-full sm:w-1/2 md:w-1/3 lg:w-47_5"
+  />
+</div>
+
+Returning to OpenVSP, the straight wings evolved into a **gull-wing front surface** and an **inverted-gull rear surface**, forming a closed **X-frame** when the aircraft is in the hovering orientation. This geometry provided two key advantages:
+
+- **Substantial improvement in torsional stiffness**, reducing twist to well below critical levels.
+- **Beneficial aerodynamic effects**, with the canted panels acting as a passive stabilizing surface similar to a V-tail.
+
+This redesign marked the transition from a conceptual layout to a refined, test-ready configuration.
+
+---
+
+## CAD Development and Modular Construction
+
+With the X-frame geometry validated in simulation, the aircraft was translated into a full **CAD model** designed around modularity and manufacturability. The airframe consists entirely of **interlocking PETG components**, reinforced with carbon-fiber spars along major load paths. Each module—wings, fuselage sections, and motor pods—can be replaced individually, allowing rapid iteration and repair.
+
+<div className="flex flex-wrap justify-around ">
+  <img
+    src="/static/images/project/palindrone/kestrel2.png"
+    className="m-2 w-full sm:w-1/2 md:w-1/3 lg:w-47_5"
+  />
+  <img
+    src="/static/images/project/palindrone/kestrel3.png"
+    className="m-2 w-full sm:w-1/2 md:w-1/3 lg:w-47_5"
+  />
+</div>
+
+The use of **FDM 3D printing** kept fabrication cost low (under $50 for a complete airframe) and enabled fast turnarounds between design modifications. This workflow made it possible to cycle efficiently between simulation, CAD updates, and physical testing.
+
+<div className="flex flex-wrap justify-around ">
+  <img
+    src="/static/images/project/palindrone/modular-uav.jpeg"
+    className="m-2 w-full sm:w-1/2 md:w-1/3 lg:w-47_5"
+  />
+  <img
+    src="/static/images/project/palindrone/kestrel-three.jpeg"
     className="m-2 w-full sm:w-1/2 md:w-1/3 lg:w-47_5"
   />
 </div>
 
 ---
 
-## Project Impact
+## Propulsion and Control Architecture
 
-Kestrel Mini became the foundation for:
+Kestrel Mini uses four **2207-class brushless motors** with 5.1×3 propellers, providing a thrust-to-weight ratio slightly above 2:1. All attitude control is achieved through **differential thrust** using a Betaflight-based flight controller.
 
-- larger Kestrel UAVs (3 kg, 10 kg, etc.)
-- tandem-wing VTOL aircraft research
-- my thesis work on geometric stability
-- wildfire-suppression payload studies
-- next-generation medical delivery UAV concepts
+Two flight profiles were implemented:
 
-It demonstrated that **geometry-driven stability** can replace complex mechanical systems in VTOL aircraft.
+- a **hover profile** tuned for high-authority corrections
+- a **forward-flight profile** tuned for smoother, low-gain stability
+
+A transmitter switch enables mid-air mode transitions. This approach maintains the project’s goal of mechanical simplicity while providing adequate control across the flight envelope.
 
 ---
 
-## Future Work
+## Flight Testing and Performance Assessment
 
-Planned improvements include:
+Extensive hover, transition, and forward-flight tests were conducted to evaluate the final configuration.
 
-- Autonomous transitions using Ardupilot/Pixhawk
-- Higher-aspect-ratio wings for extended range
-- Modular payload bays
-- Improved control laws for transition flight
-- Migrating the platform to a standardized research testbed
+Hover performance was stable, with lift-off occurring at approximately **26% throttle** and attitude deviations kept within a narrow range. The enhanced stiffness of the X-frame eliminated the control lag observed in earlier prototypes.
 
+<div className="mb-6 flex flex-wrap justify-around">
+  <img src="/static/images/project/palindrone/kestrel transition.png" className="w-2/3" />
+</div>
+
+Transition testing was performed manually by pitching the aircraft into forward flight. Transitions took **2–4 seconds**, typically with less than 1.5 m of altitude loss. The aircraft demonstrated predictable behavior throughout the maneuver, consistent with the aerodynamic characteristics identified in simulation.
+
+In cruise, Kestrel Mini achieved speeds of approximately **20 m/s** with noticeably lower power consumption than in hover. Range tests showed an effective reach of **4.5–5 km** with a moderate payload, representing a significant efficiency advantage over conventional multirotor aircraft using similar propulsion systems.
+
+---
+
+## Impact and Relevance
+
+Kestrel Mini demonstrated that a **tandem-gull-wing tailsitter** can offer stable, predictable flight using fixed-pitch rotors and carefully shaped geometry. The project established a design framework that later informed the development of larger UAVs within the Kestrel family, including platforms aimed at medical delivery and early wildfire-response applications.
+
+The aircraft validated several key principles: that structural and aerodynamic coupling can reduce mechanical complexity, that modular 3D-printed construction is effective for rapid UAV development, and that small tailsitters can achieve meaningful cruise efficiency.
+
+<div className="flex flex-wrap justify-around">
+  <img
+    src="/static/images/project/palindrone/kestrel-two-iso.jpeg"
+    className="m-2 w-full sm:w-1/2 md:w-1/3 lg:w-47_5"
+  />
+  <img
+    src="/static/images/project/palindrone/kestrel-two-front.jpeg"
+    className="m-2 w-full sm:w-1/2 md:w-1/3 lg:w-47_5"
+  />
+</div>
 ---
 
 ## Conclusion
 
-Kestrel Mini is a highly capable, low-cost research UAV that bridges simulation and real-world validation.  
-Through aerodynamic analysis, modular design, and extensive flight testing, the aircraft proved that a **tandem-wing tailsitter** can achieve stable hover, smooth transitions, and efficient forward flight using only **fixed-pitch rotors** and **geometric stability**.
+Kestrel Mini followed an iterative process of **simulation, structural refinement, modular fabrication, and flight validation**, ultimately demonstrating that a simple four-motor tailsitter can operate effectively across hover, transition, and forward-flight regimes. By relying on aerodynamic geometry rather than mechanical complexity, the aircraft serves as a proof-of-concept for accessible, efficient VTOL design and continues to influence ongoing research and development efforts.
 
-<div className="flex flex-wrap justify-around">
-  <img
-    src="/static/images/project/palindrone/palindrone-8.jpeg"
-    className="m-2 w-full sm:w-1/2 md:w-1/3 lg:w-47_5"
-  />
-  <img
-    src="/static/images/project/palindrone/palindrone-9.jpeg"
-    className="m-2 w-full sm:w-1/2 md:w-1/3 lg:w-47_5"
-  />
-</div>
+> **Thesis:**  
+> This project is based on the research documented in my graduate thesis.  
+> [View the full thesis](https://keep.lib.asu.edu/items/201543)

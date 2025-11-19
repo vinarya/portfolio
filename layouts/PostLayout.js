@@ -18,14 +18,15 @@ const postDateTemplate = { weekday: 'long', year: 'numeric', month: 'long', day:
 
 export default function PostLayout({ frontMatter, authorDetails, next, prev, children }) {
   const { slug, fileName, date, title, image, tags, type } = frontMatter
+  // Dynamically choose SEO URL based on post type
+  const seoUrl =
+    type === 'project'
+      ? `${siteMetadata.siteUrl}/project/${slug}`
+      : `${siteMetadata.siteUrl}/blog/${slug}`
 
   return (
     <SectionContainer>
-      <BlogSEO
-        url={`${siteMetadata.siteUrl}/blog/${slug}`}
-        authorDetails={authorDetails}
-        {...frontMatter}
-      />
+      <BlogSEO url={seoUrl} authorDetails={authorDetails} {...frontMatter} />
       <ScrollTopAndComment />
       <article>
         <div className="xl:divide-y xl:divide-gray-200 xl:dark:divide-gray-700">

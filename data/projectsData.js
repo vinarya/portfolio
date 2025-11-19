@@ -79,7 +79,7 @@ const projectsData = [
     imgSrc: '/static/images/mduav-lite.png',
     href: '/project/md-uav-lite',
   },
-  {
+  /*{
     title: 'Portfolio Website Version 2',
     date: '2022-07-12',
     field: 'cs',
@@ -89,7 +89,7 @@ const projectsData = [
     skills: ['HTML', 'CSS', 'javascript', 'UI/UX', 'Graphic Design'],
     imgSrc: '/static/images/old-portfolio.png',
     href: '/project/portfolio-v2',
-  },
+  },*/
   {
     title: 'Spyro',
     date: '2020-05-15',
