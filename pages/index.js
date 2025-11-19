@@ -257,9 +257,11 @@ export default function About({ authorDetails }) {
             />
           </div>
           <div className="flex justify-center py-4 sm:hidden">
-            <button className="biliboard electronic bg-white px-4 py-3 text-center font-bold text-primary-500 hover:bg-primary-500 hover:text-gray-900 dark:bg-gray-900 dark:hover:bg-primary-500">
-              View All Projects
-            </button>
+            <Link href="/project">
+              <button className="biliboard electronic bg-white px-4 py-3 text-center font-bold text-primary-500 hover:bg-primary-500 hover:text-gray-900 dark:bg-gray-900 dark:hover:bg-primary-500">
+                View All Projects
+              </button>
+            </Link>
           </div>
         </div>
       </div>
@@ -364,7 +366,7 @@ export default function About({ authorDetails }) {
           {/* Education Section */}
           <div className="mb-20 divide-y divide-gray-200 pb-24 dark:divide-gray-700 md:mb-6">
             <div className="space-y-2 py-8 md:space-y-5">
-              <h1 className="text-center text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
+              <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-center md:text-6xl md:leading-14">
                 Education
               </h1>
             </div>
@@ -387,9 +389,9 @@ export default function About({ authorDetails }) {
             ))}
           </div>
           {/* Certifications Section */}
-          <div className="mb-6 divide-y divide-gray-200 pb-24 pb-4 dark:divide-gray-700">
+          <div className="mb-20 divide-y divide-gray-200 pb-24 dark:divide-gray-700 md:mb-6">
             <div className="space-y-2 py-8 md:space-y-5">
-              <h1 className="text-center text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
+              <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-center md:text-6xl md:leading-14">
                 Certifications
               </h1>
             </div>

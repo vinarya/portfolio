@@ -67,7 +67,6 @@ const Contact = () => {
         </div>
         <input type="hidden" name="_subject" value="New submission!" />
         <input type="hidden" name="_captcha" value="false" />
-        {/*<input type="hidden" name="_next" value="https://www.vinamrarya.com/thankyou.html" />*/}
         <div className="mb-4">
           <label
             htmlFor="email"

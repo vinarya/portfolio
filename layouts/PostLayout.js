@@ -95,7 +95,7 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                           <h2 className="text-center text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
                             {`Previous ${type === 'project' ? 'Project' : 'Article'}`}
                           </h2>
-                          <div className="relative py-16 pt-2">
+                          <div className="relative py-16 pt-6">
                             <Image
                               alt={prev.title}
                               src={prev.image}
@@ -127,13 +127,6 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
             </dl>
             <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-4 xl:row-span-2 xl:pb-0">
               <div className="prose max-w-none pb-8 pt-10 dark:prose-dark">{children}</div>
-              {/*<div className="pt-6 pb-6 text-sm text-gray-700 dark:text-gray-300">
-                <Link href={discussUrl(slug)} rel="nofollow">
-                  {'Discuss on Twitter'}
-                </Link>
-                {` • `}
-                <Link href={editUrl(fileName)}>{'View on GitHub'}</Link>
-              </div>*/}
               <Comments frontMatter={frontMatter} />
             </div>
             <footer className="xl:sticky xl:top-0">
@@ -146,7 +139,7 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                           <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
                             {`Previous ${type === 'project' ? 'Project' : 'Article'}`}
                           </h2>
-                          <div className="relative p-16 pt-2">
+                          <div className="relative p-16 pt-6">
                             <Image
                               alt={prev.title}
                               layout="fill"
@@ -168,7 +161,7 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                           <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
                             {`Next ${type === 'project' ? 'Project' : 'Article'}`}
                           </h2>
-                          <div className="relative p-16 pt-2">
+                          <div className="relative p-16 pt-6">
                             <Image
                               alt={next.title}
                               src={next.image}

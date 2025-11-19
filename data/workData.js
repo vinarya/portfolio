@@ -4,9 +4,9 @@ const workData = [
     companyName: 'Arizona State University, Aerospace Engineering',
     jobPosition: 'Graduate Research Assistant',
     startDate: 'January, 2024',
-    endDate: 'Present',
+    endDate: 'May, 2025',
     description: [
-      'Developing novel configurations of elictric Vertical take-off and landing aircrafts for long range deployment of medical supplies.',
+      'Developing novel configurations of electric Vertical take-off and landing aircrafts for long range deployment of medical supplies.',
       'Working with industry experts and notable academic digintaries to develop analysis methods for fatigue and cracking of advanced composites.',
     ],
     imgSrc: '/static/images/work/asu-eng.png',

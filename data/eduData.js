@@ -1,7 +1,7 @@
 const eduData = [
   {
     title: 'Arizona State University',
-    subTitle: 'MSE Aerospace (In-Progress)',
+    subTitle: 'MSE Aerospace (Thesis)',
     imgSrc: '/static/images/edu/asu.png',
   },
   {

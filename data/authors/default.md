@@ -9,10 +9,11 @@ linkedin: https://www.linkedin.com
 github: https://github.com
 ---
 
-Hey there, I am Vinamr.
+Hey there, I’m Vinamr.
 
-Born and brought up in India, I graduated in the summer of 2023 with degrees in Aerospace Engineering and Computer Science from the University of Michigan. I am currently pursuing my masters in aerospace engineering at Arizona State University where I also work part-time as a Graduate Research Assistant (GRA). I have a passion for problem-solving and building innovative solutions. Creativity, innovation, and collaboration are the core values that guide me in my professional journey.
+Born and brought up in India, I’m currently based out of Arizona. My work, as an Assistant Researcher at Arizona State University, focuses on designing and building advanced Vertical Take-Off and Landing (VTOL) aircraft, especially for medical delivery, wildfire response, and missions in remote or infrastructure-limited regions. I enjoy working at the intersection of creativity, engineering, and real-world problem-solving, and I’m always looking for ways to turn ambitious ideas into practical, working systems.
 
-I have experience leading teams and have been actively involved in various projects. My current focus is on designing and building eVTOL aircraft for the rapid deployment of medical supplies. In my free time, I enjoy watching documentaries, working on model airplanes, and playing cricket.
+Over the years, I’ve led teams and contributed to a range of projects — from lightweight prototype aircraft to larger tandem-wing platforms and emerging concepts for autonomous wildfire-suppression drones. I love the challenge of taking a concept from a rough sketch to a flying machine and refining it until it’s both elegant and reliable.
+Outside of work, I’m happiest when I’m outdoors. I love going on hikes, road trips, and exploring new places in general. I occasionally play the violin, and when it comes to sports, I enjoy watching both cricket and football.
 
-I am always open to new opportunities that allow me to learn and grow. If you have a project or an idea that you think I could contribute to, please don't hesitate to reach out. Thank you for taking the time to visit my website. Feel free to browse around and get to know me better!
+I’m always open to interesting collaborations or new ideas. If you think there’s something we could build or explore together, feel free to reach out. Thanks for stopping by, and I hope you enjoy exploring my work!
